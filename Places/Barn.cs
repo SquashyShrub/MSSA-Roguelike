@@ -24,9 +24,9 @@ namespace MSSA_Roguelike___Mini_Project.Places
 
             #region Display Barn Entrance
 
-            Artwork_Barn.DrawArt(Artwork_Barn.worldArt["barnEntrance"], 2);
+            Artwork_Barn.DrawArt(Artwork_Barn.worldArt["barnEntrance"]);
             ReadKey();
-            Artwork_Barn.Erase(Artwork_Barn.worldArt["barnEntrance"], 2);
+            Artwork_Barn.Erase(Artwork_Barn.worldArt["barnEntrance"], 20);
 
             #endregion Display Barn Entrance
 
