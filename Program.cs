@@ -32,19 +32,29 @@ namespace MSSA_Roguelike___Mini_Project
             WriteLine("Press any key to start...");
             ReadAndClear();
 
-            introOutro.DisplayIntro();
+            //introOutro.DisplayIntro();
             //Loading Symbol
 
             //Gameplay
             bool exit = false;
             do
-            { 
+            {
+                //Conditionals
+                bool hasKey = false;
+                bool barnUnlocked = false;
+
                 world.DrawGrid(0, 45);
                 switch(townSquare.DisplayTownSquare())
                 {
                     case 0:
                         //Graveyard
-                        grave.Start();
+                        if (hasKey)
+                            grave.Start();
+                        else
+                        {
+                            Dialog("It's locked...Is there a key somewhere?", 58, 44);
+                            ReadKey();
+                        }
                         break;
 
                     case 1:
@@ -59,7 +69,13 @@ namespace MSSA_Roguelike___Mini_Project
 
                     case 3:
                         //Barn - BOSS
-                        barn.Start();
+                        if (barnUnlocked)
+                            barn.Start();
+                        else
+                        {
+                            Dialog("I feel like I should explore more...", 58, 44);
+                            ReadKey();
+                        }
                         break;
                 }
 
@@ -85,6 +101,13 @@ namespace MSSA_Roguelike___Mini_Project
             {
                 ReadKey();
                 Clear();
+            }
+            void Dialog(string input, int cursorX=0, int cursorY=0)
+            {
+                SetCursorPosition(cursorX, cursorY);
+                ForegroundColor = ConsoleColor.Blue;
+                WriteLine(input);
+                ResetColor();
             }
             void Loading()
             {
