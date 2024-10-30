@@ -9,6 +9,7 @@ namespace MSSA_Roguelike___Mini_Project
         static void Main(string[] args)
         {
             #region Game Objects
+
             string[,] screenGrid = TextParser.ParseFileToArray("C:\\MSSA\\DS_Algo\\MSSA Roguelike - Mini Project\\TextFiles\\NormalScreen.txt");
             World world = new World(screenGrid);
 
@@ -39,7 +40,7 @@ namespace MSSA_Roguelike___Mini_Project
             bool exit = false;
             do
             { 
-                world.DrawGrid(0, 45);
+                world.DrawGrid(0, 45); //Want to draw this screen for everything except movement in the interior maps
                 switch(townSquare.DisplayTownSquare())
                 {
                     case 0:
@@ -86,7 +87,7 @@ namespace MSSA_Roguelike___Mini_Project
                 ReadKey();
                 Clear();
             }
-            void Loading()
+            void Loading() //==> Put in the world class
             {
 
             }
