@@ -21,6 +21,7 @@ namespace MSSA_Roguelike___Mini_Project
             CornMaze maze = new CornMaze();
             Graveyard grave = new Graveyard();
             Barn barn = new Barn();
+            Battlegrounds battle = new Battlegrounds();
 
             #endregion Game Objects
 
@@ -36,7 +37,7 @@ namespace MSSA_Roguelike___Mini_Project
             //Loading Symbol
 
             //Gameplay
-            bool exit = false;
+            /*bool exit = false;
             do
             {
                 //Conditionals
@@ -81,7 +82,10 @@ namespace MSSA_Roguelike___Mini_Project
 
             } while(exit != true);
 
-            //ReadAndClear();
+            //ReadAndClear(); */
+
+            battle.barnBattle();
+            ReadAndClear();
 
             
 

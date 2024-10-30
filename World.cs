@@ -9,6 +9,10 @@ namespace MSSA_Roguelike___Mini_Project
 {
     internal class World
     {
+        //Items
+        private Items Key;
+        private Items Sword; 
+
         private string[,] Grid;
         private int rows;
         private int cols;
@@ -17,6 +21,8 @@ namespace MSSA_Roguelike___Mini_Project
 
         public World(string[,] grid)
         {
+            Key = new Items("Graveyard Key", 1);
+
             CursorVisible = false;
             Grid = grid;
             rows = Grid.GetLength(0);
