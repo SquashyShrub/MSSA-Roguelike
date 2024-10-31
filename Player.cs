@@ -35,5 +35,50 @@ namespace MSSA_Roguelike___Mini_Project
             ResetColor();
         }
 
+        /* Handle player input for movement here? to avoid multiple times writing it like it is now - - > more readable aswell
+        public void GetPlayerInput() 
+        {
+            //Gets the last input of the player to avoid trailing movement when no keys are being pressed
+            ConsoleKey key;
+            do
+            {
+                ConsoleKeyInfo keyInfo = ReadKey(true);
+                key = keyInfo.Key;
+
+            } while (KeyAvailable);
+
+            switch (key)
+            {
+                case ConsoleKey.UpArrow:
+                    if (!GameHandler_Church.Colliding(Player_Church.X, Player_Church.Y - 1))
+                    {
+                        Player_Church.Y -= 1;
+                    }
+                    break;
+
+                case ConsoleKey.DownArrow:
+                    if (!GameHandler_Church.Colliding(Player_Church.X, Player_Church.Y + 1))
+                    {
+                        Player_Church.Y += 1;
+                    }
+                    break;
+
+                case ConsoleKey.LeftArrow:
+                    if (!GameHandler_Church.Colliding(Player_Church.X - 1, Player_Church.Y))
+                    {
+                        Player_Church.X -= 1;
+                    }
+                    break;
+
+                case ConsoleKey.RightArrow:
+                    if (!GameHandler_Church.Colliding(Player_Church.X + 1, Player_Church.Y))
+                    {
+                        Player_Church.X += 1;
+                    }
+                    break;
+        } */
+         
+        
+
     }
 }

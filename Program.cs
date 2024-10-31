@@ -9,6 +9,7 @@ namespace MSSA_Roguelike___Mini_Project
         static void Main(string[] args)
         {
             #region Game Objects
+
             string[,] screenGrid = TextParser.ParseFileToArray("C:\\MSSA\\DS_Algo\\MSSA Roguelike - Mini Project\\TextFiles\\NormalScreen.txt");
             World world = new World(screenGrid);
 
@@ -105,13 +106,6 @@ namespace MSSA_Roguelike___Mini_Project
             {
                 ReadKey();
                 Clear();
-            }
-            void Dialog(string input, int cursorX=0, int cursorY=0)
-            {
-                SetCursorPosition(cursorX, cursorY);
-                ForegroundColor = ConsoleColor.Blue;
-                WriteLine(input);
-                ResetColor();
             }
             void Loading()
             {
