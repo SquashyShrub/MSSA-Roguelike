@@ -48,6 +48,9 @@ namespace MSSA_Roguelike___Mini_Project
             string[,] Skeleton = TextParser.ParseFileToArray("C:\\MSSA\\DS_Algo\\MSSA Roguelike - Mini Project\\TextFiles\\Artwork\\SkeletonEnemy.txt");
             worldArt.Add("Skeleton", Skeleton);
 
+            string[,] Reaper = TextParser.ParseFileToArray("C:\\MSSA\\DS_Algo\\MSSA Roguelike - Mini Project\\TextFiles\\Artwork\\ReaperEnemy.txt");
+            worldArt.Add("Reaper", Reaper);
+
             #endregion Add Artwork to Dictionary
         }
 

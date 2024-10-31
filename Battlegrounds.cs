@@ -52,7 +52,7 @@ namespace MSSA_Roguelike___Mini_Project
                 reaper.DisplayInfo(125, 97, 2, 90);
                 ReadKey();
 
-                reaper.SytheSlash();
+                reaper.ScytheSlash();
                 ReadKey();
 
                 reaper.SuperSlash();

@@ -14,11 +14,11 @@ namespace MSSA_Roguelike___Mini_Project.Characters
 
         }
 
-        public void SytheSlash()
+        public void ScytheSlash()
         {
             Random damage = new Random();
             Console.BackgroundColor = ConsoleColor.DarkGray;
-            Console.WriteLine($"{name} attacks! He does 'High Slash' and did {damage.Next(5, 13)} damage!");
+            Console.WriteLine($"{name} attacks! He does 'Scythe Slash' and did {damage.Next(5, 13)} damage!");
             Console.ResetColor();
         }
 
@@ -26,7 +26,7 @@ namespace MSSA_Roguelike___Mini_Project.Characters
         {
             Random damage = new Random();
             Console.BackgroundColor = ConsoleColor.DarkGray;
-            Console.WriteLine($"{name} attacks! He does 'High Slash' and did {damage.Next(5, 13)} damage!");
+            Console.WriteLine($"{name} attacks! He does 'Super Slash' and did {damage.Next(5, 13)} damage!");
             Console.ResetColor();
         }
 
@@ -34,7 +34,7 @@ namespace MSSA_Roguelike___Mini_Project.Characters
         {
             Random Heal = new Random();
             Console.BackgroundColor = ConsoleColor.DarkGray;
-            Console.WriteLine($"{name} attacks! He does 'High Slash' and did {damage.Next(5, 13)} damage!");
+            Console.WriteLine($"{name} heals! He heals {Heal.Next(5, 13)} HP!");
             Console.ResetColor();
         }
     }
