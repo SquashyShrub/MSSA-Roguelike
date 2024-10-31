@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Console;
 
 namespace MSSA_Roguelike___Mini_Project.Characters
 {
-    internal class Ghosts : Enemy
+    internal class Ghosts : Character
     {
         private bool Evade;
         public Ghosts(string name, int health, string characterArt, ConsoleColor color) 
@@ -14,29 +15,58 @@ namespace MSSA_Roguelike___Mini_Project.Characters
         {
             
         }
-        //public bool evadeChance(Random x)
-        //{
-        //    if (x.Next(1,100) > 75) //25% chance
-        //    {
-        //        return true;
-        //    }
-        //    else { return false; }
-        //}
+        
 
-        public void GhostPunch()
+        public override void Battle(Character opponent)
         {
-            Random damage = new Random();
-            Console.BackgroundColor = ConsoleColor.DarkGray;
-            Console.WriteLine($"{name} threw 'Ghost Punch' and did {damage.Next(1, 10)} damage!");
-            Console.ResetColor();
+            int chance = RandGenerator.Next(1, 101);
+
+            ForegroundColor = Color;
+            WriteLine($"{name} attacks {opponent.name}!");
+            ResetColor();
+            //80% chance ghost punch (1 - 10 Dmg) / 20% chance Super (5 - 18 dmg) / 33% evade (no dmg)
+            //75% hit rate                        / 90% hit rate
+            if (chance <= 80)
+            {
+                Write($"{name} attempts 'Ghost Punch'! ");
+                int hit = RandGenerator.Next(1, 101);
+                Thread.Sleep(1000);
+                if (hit <= 75)
+                {
+                    opponent.TakeDamage(GhostPunch());
+                }
+                else
+                    WriteLine($"{name} misses with incredible inaccuracy!");
+            }
+            else
+            {
+                Write($"{name} attempts a 'Ghastly Super Punch'! ");
+                int hit = RandGenerator.Next(1, 101);
+                Thread.Sleep(1000);
+                if (hit <= 90)
+                {
+                    opponent.TakeDamage(GhastlySuperPunch());
+                }
+                else
+                    WriteLine($"{name} misses an attack with 90% accuracy. It explains the ghost situation.");
+            }
+        }
+        public int GhostPunch()
+        {
+            int damage = RandGenerator.Next(1, 11);
+            BackgroundColor = ConsoleColor.DarkGray;
+            WriteLine($" {name} does {damage} damage!");
+            ResetColor();
+            return damage;
         }
 
-        public void GhastlySuperPunch()
+        public int GhastlySuperPunch()
         {
-            Random damage = new Random();
-            Console.BackgroundColor = ConsoleColor.DarkRed;
-            Console.WriteLine($"{name} threw 'Ghastly Super Punch!' and did {damage.Next(7, 18)} damage!");
-            Console.ResetColor();
+            int damage = RandGenerator.Next(5, 19);
+            BackgroundColor = ConsoleColor.DarkRed;
+            WriteLine($"{name} does {damage} damage!");
+            ResetColor();
+            return damage;
         }
     }
 }

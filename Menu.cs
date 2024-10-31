@@ -143,5 +143,59 @@ namespace MSSA_Roguelike___Mini_Project
 
 
         }
+
+        public int BattleMenu(int cursorX = 0, int cursorY = 0)
+        {
+            List<string> optionList = new List<string>(); //Want to use the 'small' ASCII Font eventually
+            optionList.Add("(70%) Basic Attack (0 stamina)");
+            optionList.Add("(90%) Special Attack (3 stamina)");
+            optionList.Add("Skip turn (gain +1 stamina");
+            optionList.Add("Heal (heal 10 HP)");
+
+            firstOption = 0;
+            lastOption = optionList.Count;
+            isSelected = false;
+
+            ConsoleKey key;
+
+            while (isSelected == false)
+            {
+                
+                for (int i = 0; i < lastOption; i++)
+                {
+                    SetCursorPosition(cursorX, cursorY + i);
+                    WriteLine($"");
+                }
+
+                for (int i = 0; i < lastOption; i++)
+                {
+                    SetCursorPosition(cursorX, cursorY + i);
+                    WriteLine($"{(option == i ? selectedTextColor : "        ")}{optionList[i]}{resetColor}");
+                }
+
+                ConsoleKeyInfo keyInfo = ReadKey();
+                switch (keyInfo.Key)
+                {
+                    case ConsoleKey.UpArrow:
+                        if (option == firstOption)
+                            option = lastOption;
+                        else
+                            option--;
+                        break;
+
+                    case ConsoleKey.DownArrow:
+                        if (option == lastOption)
+                            option = firstOption;
+                        else
+                            option++;
+                        break;
+
+                    case ConsoleKey.Enter:
+                        isSelected = true;
+                        break;
+                }
+            }
+            return option;
+        }
     }
 }

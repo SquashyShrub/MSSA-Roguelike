@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MSSA_Roguelike___Mini_Project.Characters;
 using static System.Console;
 
 namespace MSSA_Roguelike___Mini_Project.Places
@@ -19,7 +20,7 @@ namespace MSSA_Roguelike___Mini_Project.Places
 
             string[,] mazeGrid = TextParser.ParseFileToArray("C:\\MSSA\\DS_Algo\\MSSA Roguelike - Mini Project\\TextFiles\\Maps\\CornMazeInterior.txt");
 
-            Player_Maze = new Player(2, 9);
+            Player_Maze = new Player(2, 9, "Jimmy", 200, ConsoleColor.Cyan, 6);
             Maze_GameHandler = new World(mazeGrid);
 
             #region Display Maze Entrance

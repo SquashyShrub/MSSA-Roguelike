@@ -6,19 +6,21 @@ using System.Text;
 using System.Threading.Tasks;
 using static System.Console;
 
-namespace MSSA_Roguelike___Mini_Project
+namespace MSSA_Roguelike___Mini_Project.Characters
 {
-    internal class Player
+    internal class Player : Character
     {
         private ConsoleColor PlayerColor;
         private string PlayerMarker;
         private string PlayerReset;
+        private Menu menu = new Menu();
 
         //Get player's X and Y position to draw
-        public int X {  get; set; }
+        public int X { get; set; }
         public int Y { get; set; }
 
-        public Player(int startingX, int startingY)
+        public Player(int startingX, int startingY, string name, int health, ConsoleColor color, int stamina)
+            : base(name, health, "", color, stamina)
         {
             X = startingX;
             Y = startingY;
@@ -33,6 +35,31 @@ namespace MSSA_Roguelike___Mini_Project
             SetCursorPosition(X, Y);
             Write(PlayerMarker);
             ResetColor();
+        }
+
+        public override void Battle(Character opponent)
+        {
+            switch(menu.BattleMenu())
+            {
+                case 1: //basic attack
+                    break;
+
+                case 2: //special attack
+                    break;
+
+                case 3: //skip turn
+                    break;
+
+                case 4: //heal
+                    break;
+            }
+
+            void attack()
+            {
+                ForegroundColor = Color;
+                WriteLine($"{name} attacks {opponent.name}");
+                ResetColor();
+            }
         }
 
         /* Handle player input for movement here? to avoid multiple times writing it like it is now - - > more readable aswell
@@ -77,8 +104,8 @@ namespace MSSA_Roguelike___Mini_Project
                     }
                     break;
         } */
-         
-        
+
+
 
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MSSA_Roguelike___Mini_Project.Characters;
 using static System.Console;
 
 namespace MSSA_Roguelike___Mini_Project.Places
@@ -20,7 +21,7 @@ namespace MSSA_Roguelike___Mini_Project.Places
             string[,] graveyardGrid = TextParser.ParseFileToArray("C:\\MSSA\\DS_Algo\\MSSA Roguelike - Mini Project\\TextFiles\\Maps\\GraveYardMap.txt");
 
             GameHandler_Graveyard = new World(graveyardGrid);
-            Player_Graveyard = new Player(3, 9);
+            Player_Graveyard = new Player(3, 9, "Jimmy", 200, ConsoleColor.Cyan, 6);
 
             #region Display Graveyard Entrance
 

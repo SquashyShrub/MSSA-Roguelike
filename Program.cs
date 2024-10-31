@@ -85,7 +85,7 @@ namespace MSSA_Roguelike___Mini_Project
 
             //ReadAndClear(); */
 
-            battle.barnBattle();
+            battle.churchBattle();
             ReadAndClear();
 
             
