@@ -29,7 +29,6 @@ namespace MSSA_Roguelike___Mini_Project
                 }
                 
             }
-
             return grid;
             
         }

@@ -38,7 +38,7 @@ namespace MSSA_Roguelike___Mini_Project
             //Loading Symbol
 
             //Gameplay
-            /*bool exit = false;
+            /* bool exit = false;
             do
             {
                 //Conditionals
@@ -106,6 +106,10 @@ namespace MSSA_Roguelike___Mini_Project
             {
                 ReadKey();
                 Clear();
+            }
+            void Dialog(string input, int cursorX, int cursorY)
+            {
+                Console.WriteLine(input);
             }
             void Loading()
             {

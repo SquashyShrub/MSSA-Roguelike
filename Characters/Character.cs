@@ -43,7 +43,7 @@ namespace MSSA_Roguelike___Mini_Project.Characters
             ResetColor();
 
             //Health - - at the bottom
-            WriteLine($"Health: {health}".PadLeft(healthPadding));
+            //WriteLine($"Health: {health}".PadLeft(healthPadding));
         }
 
         public virtual void Battle(Character opponent)

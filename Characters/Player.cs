@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading.Channels;
 using System.Threading.Tasks;
 using static System.Console;
 
@@ -39,26 +40,44 @@ namespace MSSA_Roguelike___Mini_Project.Characters
 
         public override void Battle(Character opponent)
         {
-            switch(menu.BattleMenu())
-            {
-                case 1: //basic attack
+            switch (menu.BattleMenu(0, 22))
+            { 
+                case 0: //basic attack
+                    int chance = RandGenerator.Next(1, 101);
+                    if (chance <= 80)
+                    {
+                        Write($"{name} attempts 'Side Slash'! ");
+                        int hit = RandGenerator.Next(1, 101);
+                        Thread.Sleep(1000);
+                        if (hit <= 70)
+                        {
+                            opponent.TakeDamage(BasicAttack());
+                        }
+                        else
+                            WriteLine($"{name} wasn't even close with the swing!");
+                    }
                     break;
 
-                case 2: //special attack
+                case 1: //special attack
+                    WriteLine("Special Attack!");
                     break;
 
-                case 3: //skip turn
+                case 2: //skip turn
+                    WriteLine("Skip Turn!");
                     break;
 
-                case 4: //heal
+                case 3: //heal
+                    WriteLine("Healed 10 HP!");
                     break;
             }
 
-            void attack()
+            int BasicAttack()
             {
-                ForegroundColor = Color;
-                WriteLine($"{name} attacks {opponent.name}");
+                int damage = RandGenerator.Next(10, 16);
+                BackgroundColor = ConsoleColor.DarkGray;
+                WriteLine($" {name} swings viciously for {damage} damage!");
                 ResetColor();
+                return damage;
             }
         }
 

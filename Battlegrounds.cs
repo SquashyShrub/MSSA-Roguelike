@@ -28,8 +28,6 @@ namespace MSSA_Roguelike___Mini_Project
         
         public Battlegrounds()
         {
-            randGenerator = new Random();
-
             //Add Ghosts
             ghosts.Add(ghost1);
             ghosts.Add(ghost2);
@@ -44,31 +42,46 @@ namespace MSSA_Roguelike___Mini_Project
                 Ghosts currentGhost = ghosts[i];
                 while (currentGhost.health > 0 && Jimmy.health > 0)
                 {
-                    currentGhost.DisplayInfo();
-
-                    Jimmy.DisplayHealthBar();
-                    Jimmy.DisplayStaminaBar();
-                    WriteLine();
-                    currentGhost.DisplayHealthBar();
-                    WriteLine();
-                    ReadKey();
-
-                    Jimmy.Battle(currentGhost);
-                    ReadKey();
-                    currentGhost.Battle(Jimmy);
-                    ReadKey();
-
-
                     Clear();
+                    DisplayInfos();
+                    Jimmy.Battle(currentGhost);
+                    if (currentGhost.health <= 0)
+                        break;
+
+                    ReadKey();
+                    Clear();
+
+                    DisplayInfos();
+                    currentGhost.Battle(Jimmy);
+                    if (Jimmy.health <= 0)
+                        break;
+
+                    ReadKey();
+                    Clear();
+
+                    void DisplayInfos()
+                    {
+                        currentGhost.DisplayInfo();
+                        Jimmy.DisplayHealthBar();
+                        Jimmy.DisplayStaminaBar();
+                        WriteLine();
+                        currentGhost.DisplayHealthBar();
+                        WriteLine();
+                    }
                 }
                 if (currentGhost.health <= 0)
                 {
+                    Clear();
                     WriteLine($"Jimmy has slain the enemy!");
+                    WriteLine("Another approaches!");
                     i++;
+                    ReadKey();
                 }
                 else
                 {
+                    Clear();
                     WriteLine("Jimmy died even with all that health generously given to him by his creator");
+                    ReadKey();
                     break;
                 }
             }
