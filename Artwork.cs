@@ -51,6 +51,16 @@ namespace MSSA_Roguelike___Mini_Project
             string[,] Reaper = TextParser.ParseFileToArray("C:\\MSSA\\DS_Algo\\MSSA Roguelike - Mini Project\\TextFiles\\Artwork\\ReaperEnemy.txt");
             worldArt.Add("Reaper", Reaper);
 
+
+            //Items
+            string[,] GraveyardKey = TextParser.ParseFileToArray("C:\\MSSA\\DS_Algo\\MSSA Roguelike - Mini Project\\TextFiles\\Artwork\\Key.txt");
+            worldArt.Add("GraveyardKey", GraveyardKey);
+
+
+            //MenuText
+            string[,] GameControls = TextParser.ParseFileToArray("C:\\MSSA\\DS_Algo\\MSSA Roguelike - Mini Project\\TextFiles\\MenuTexts\\GameControls.txt");
+            worldArt.Add("GameControls", GameControls);
+
             #endregion Add Artwork to Dictionary
         }
 
@@ -115,7 +125,7 @@ namespace MSSA_Roguelike___Mini_Project
          * Grim Reaper Art: jgs https://www.asciiart.eu/mythology/grim-reapers
          * Ghost Art: jgs https://www.asciiart.eu/mythology/ghosts
          * Key Art: Myself
-         * Sword Art: Myself
+         * Text Art: patorjk.com https://patorjk.com/software/taag/#p=display&h=2&v=0&f=BlurVision%20ASCII&t=Type%20Something%20
          * 
          */
         #endregion Credits

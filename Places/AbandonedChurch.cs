@@ -13,6 +13,7 @@ namespace MSSA_Roguelike___Mini_Project.Places
         private World GameHandler_Church;
         private Player Player_Church;
         private Artwork Art_Church = new Artwork();
+        private Battlegrounds battle = new Battlegrounds();
         public int Health = 200;
         public void Start()
         {
@@ -88,6 +89,7 @@ namespace MSSA_Roguelike___Mini_Project.Places
         {
             //Variables
             bool exit = false;
+            bool enemyDefeated = false;
 
             while (exit == false)
             {
@@ -97,11 +99,84 @@ namespace MSSA_Roguelike___Mini_Project.Places
                 //Player movement
                 PlayerInput();
 
-                //Activate event
-                ///Dependent on certain things - - Check notebook///
+                //Activate events
+                string currentLocation = GameHandler_Church.GetElementAt(Player_Church.X, Player_Church.Y);
+                
+                switch (currentLocation)
+                {
+                    case "X":
+                        //Add dialog and animation here
+                        if (enemyDefeated == false)
+                        {
+                            enemyDefeated = true;
+                            battle.churchBattle();
+                        }
+                        else
+                        {
+                            WriteLine("~~Plasma lays on the ground...~~         ");
+                            ReadKey();
+                        }
+                        break;
+
+                    case "O": 
+                        //Pool of blood
+                        if (Player_Church.X == 30 && Player_Church.Y == 6)
+                        {
+                            WriteLine("> A pool of blood...disgusting           ");
+                            ReadKey(true);
+                        }
+
+                        //Dead Priest
+                        if (Player_Church.X == 32 && Player_Church.Y == 5)
+                        {
+                            WriteLine("> A dead priest...                       ");
+                            ReadKey(true);
+                        }
+
+                        //Partial note
+                        if (Player_Church.X == 28 && Player_Church.Y == 4)
+                        {
+                            WriteLine("> A torn note... 'I dropped the key i...'");
+                            ReadKey(true);
+                        }
+
+                        //Other partial note
+                        if (Player_Church.X == 33 && Player_Church.Y == 22)
+                        {
+                            WriteLine("> An torn note... 'n the maze'...'       ");
+                            ReadKey(true);
+                        }
+                        break;
+
+                    case "<":
+                        if (enemyDefeated == true)
+                        {
+                            Clear();
+                            exit = true;
+                        }
+                        else
+                        {
+                            WriteLine("There are still enemies nearby...        ");
+                            ReadKey(true);
+                        }
+                        break;
+
+                    case ">":
+                        if (enemyDefeated == true)
+                        {
+                            Clear();
+                            exit = true;
+                        }
+                        else
+                        {
+                            WriteLine("There are still enemies nearby...        ");
+                            ReadKey(true);
+                        }
+                        break;
+                }
 
                 //Render
-                Thread.Sleep(150);
+                Thread.Sleep(10);
             }
         }
     }

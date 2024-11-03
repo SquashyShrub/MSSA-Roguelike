@@ -17,14 +17,14 @@ namespace MSSA_Roguelike___Mini_Project.Characters
         }
         
 
-        public override void Battle(Character opponent)
+        public override void Battle(Character opponent, int x = 0, int y = 0)
         {
             int chance = RandGenerator.Next(1, 101);
 
             ForegroundColor = Color;
             WriteLine($"{name} attacks {opponent.name}!");
             ResetColor();
-            //80% chance ghost punch (1 - 10 Dmg) / 20% chance Super (5 - 18 dmg) / 33% evade (no dmg)
+            //80% chance ghost punch (1 - 10 Dmg) / 20% chance Super (5 - 18 dmg)
             //75% hit rate                        / 90% hit rate
             if (chance <= 80)
             {

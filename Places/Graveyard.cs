@@ -13,6 +13,7 @@ namespace MSSA_Roguelike___Mini_Project.Places
         private World GameHandler_Graveyard;
         private Player Player_Graveyard;
         private Artwork Artwork_Graveyard = new Artwork();
+        private Battlegrounds battle = new Battlegrounds();
 
         public void Start()
         {
@@ -80,6 +81,7 @@ namespace MSSA_Roguelike___Mini_Project.Places
         private void RunGraveyardLoop()
         {
             bool exit = false;
+            bool enemyDefeated = false;
 
             while (exit == false)
             {
@@ -90,10 +92,49 @@ namespace MSSA_Roguelike___Mini_Project.Places
                 PlayerInput();
 
                 //Event handler
-                ///Events happen here - - check notebook
+                string currentElement = GameHandler_Graveyard.GetElementAt(Player_Graveyard.X, Player_Graveyard.Y);
+                switch (currentElement)
+                {
+                    case "X":
+                        if (enemyDefeated == false)
+                        {
+                            enemyDefeated = true;
+                            battle.graveBattle();
+                        }
+                        else
+                        {
+                            WriteLine("~~A bunch of bones lay on the ground...~~");
+                            ReadKey();
+                        }
+                        break;
+
+                    case "O":
+                        //Here something...should go to barn
+                        if (enemyDefeated)
+                        {
+                            WriteLine("\n> What a strange altar...               ");
+                            ReadKey(true);
+                            WriteLine("> That's a lot of blood too...            ");
+                            ReadKey(true);
+                            WriteLine("~~A noise comes from the nearby barn~~    ");
+                            ReadKey(true);
+                            WriteLine("> What was that...                        ");
+                            ReadKey(true);
+                            WriteLine("> I should investigate...                 ");
+                            ReadKey(true);
+                            Clear();
+                            exit = true;
+                        }
+                        else
+                        {
+                            WriteLine("> I should explore this after I defeat the chill skeleton...");
+                            ReadKey(true);
+                        }
+                        break;
+                }
 
                 //Render Console
-                Thread.Sleep(150);
+                Thread.Sleep(10);
             }
         }
     }

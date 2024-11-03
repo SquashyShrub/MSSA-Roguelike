@@ -108,5 +108,26 @@ namespace MSSA_Roguelike___Mini_Project
             return Grid[y, x];
         }
 
+        /// <summary>
+        /// Enter a load time in seconds, and it will give a simple loading screen
+        /// </summary>
+        /// <param name="loadTime"></param>
+        public void Loading(int loadTime)
+        {
+            string input = "Loading...";
+            int load = loadTime * 1000;
+            int indvLoad = load / 24;
+            StringBuilder sb = new StringBuilder();
+            for (int i = loadTime; i >= 0; i--)
+            {
+                Clear();
+                SetCursorPosition(WindowWidth / 2, WindowHeight / 2);
+                foreach (char c in input)
+                {
+                    Write(c);
+                    Thread.Sleep(indvLoad);
+                }
+            }
+        }
     }
 }

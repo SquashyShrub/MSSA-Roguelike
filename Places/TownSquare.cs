@@ -15,10 +15,17 @@ namespace MSSA_Roguelike___Mini_Project.Places
         {
             Menu menus = new Menu();
             Artwork art = new Artwork();
+            
 
             art.DrawArt(art.worldArt["TownSquare"], 10, 65);
 
-            return menus.TownSquareMenu(50, 38);
+
+            Console.SetCursorPosition(50, 37);
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("Where should I go?");
+            Console.ResetColor();
+
+            return menus.TownSquareMenu(50, 40);
         }
 
     }

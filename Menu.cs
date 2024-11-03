@@ -150,7 +150,7 @@ namespace MSSA_Roguelike___Mini_Project
             optionList.Add("(70%) Basic Attack (0 stamina)");
             optionList.Add("(90%) Special Attack (3 stamina)");
             optionList.Add("Skip turn (gain +1 stamina");
-            optionList.Add("Heal (heal 10 HP)");
+            optionList.Add("Heal (heal 40 HP)");
 
             firstOption = 0;
             lastOption = optionList.Count;

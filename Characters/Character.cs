@@ -46,7 +46,7 @@ namespace MSSA_Roguelike___Mini_Project.Characters
             //WriteLine($"Health: {health}".PadLeft(healthPadding));
         }
 
-        public virtual void Battle(Character opponent)
+        public virtual void Battle(Character opponent, int x = 0, int y = 0)
         {
             ForegroundColor = Color;
             WriteLine($"{name} is fighting!");

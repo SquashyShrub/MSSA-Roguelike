@@ -13,6 +13,7 @@ namespace MSSA_Roguelike___Mini_Project.Places
         World GameHandler_Barn;
         Player Player_Barn;
         Artwork Artwork_Barn = new Artwork();
+        Battlegrounds battle = new Battlegrounds();
 
         public void Start()
         {
@@ -89,7 +90,14 @@ namespace MSSA_Roguelike___Mini_Project.Places
                 PlayerInput();
 
                 //Event
-                ///Check notebook
+                string currentLocation = GameHandler_Barn.GetElementAt(Player_Barn.X, Player_Barn.Y);
+
+                switch (currentLocation)
+                {
+                    case "X":
+                        battle.barnBattle();
+                        break;
+                }
 
                 //Render console
                 Thread.Sleep(150);

@@ -1,4 +1,6 @@
 ﻿using System.Security.Cryptography.X509Certificates;
+using System.Text;
+using MSSA_Roguelike___Mini_Project.Characters;
 using MSSA_Roguelike___Mini_Project.Places;
 using static System.Console;
 
@@ -12,9 +14,12 @@ namespace MSSA_Roguelike___Mini_Project
 
             string[,] screenGrid = TextParser.ParseFileToArray("C:\\MSSA\\DS_Algo\\MSSA Roguelike - Mini Project\\TextFiles\\NormalScreen.txt");
             World world = new World(screenGrid);
+            Player Jimmy = new Player(0, 0, null, 0, 0, 0);
 
             Artwork gameArt = new Artwork();
             Menu menus = new Menu();
+            Items graveKey = new Items("Graveyard Key", 1);
+            Items sword = new Items("Sword", 1);
 
             IntroOutro introOutro = new IntroOutro();
             TownSquare townSquare = new TownSquare();
@@ -22,7 +27,6 @@ namespace MSSA_Roguelike___Mini_Project
             CornMaze maze = new CornMaze();
             Graveyard grave = new Graveyard();
             Barn barn = new Barn();
-            Battlegrounds battle = new Battlegrounds();
 
             #endregion Game Objects
 
@@ -34,39 +38,48 @@ namespace MSSA_Roguelike___Mini_Project
             WriteLine("Press any key to start...");
             ReadAndClear();
 
-            //introOutro.DisplayIntro();
-            //Loading Symbol
+            introOutro.DisplayIntro();
+            world.Loading(2);
 
-            //Gameplay
-            /* bool exit = false;
+            //Conditionals
+            bool exit = false;
+            bool barnUnlocked = false;
+            bool hasKey = false;
+            bool churchVisit = false;
+
             do
             {
-                //Conditionals
-                bool hasKey = false;
-                bool barnUnlocked = false;
-
                 world.DrawGrid(0, 45);
+                if (hasKey)
+                {
+                    gameArt.DrawArt(gameArt.worldArt["GraveyardKey"], 39, 126);
+                }
                 switch(townSquare.DisplayTownSquare())
                 {
                     case 0:
                         //Graveyard
                         if (hasKey)
+                        {
                             grave.Start();
+                            barnUnlocked = true;
+                        }
                         else
                         {
                             Dialog("It's locked...Is there a key somewhere?", 58, 44);
-                            ReadKey();
+                            ReadKey(true);
                         }
                         break;
 
                     case 1:
                         //Church
                         church.Start();
+                        churchVisit = true;
                         break;
 
                     case 2:
                         //Corn Maze
                         maze.Start();
+                        hasKey = true;
                         break;
 
                     case 3:
@@ -76,20 +89,14 @@ namespace MSSA_Roguelike___Mini_Project
                         else
                         {
                             Dialog("I feel like I should explore more...", 58, 44);
-                            ReadKey();
+                            ReadKey(true);
                         }
                         break;
                 }
 
             } while(exit != true);
 
-            //ReadAndClear(); */
-
-            battle.churchBattle();
             ReadAndClear();
-
-            
-
 
             //Ease-Of-Use Functions
             void DefaultResolution()
@@ -102,6 +109,7 @@ namespace MSSA_Roguelike___Mini_Project
                 WindowHeight = 60;
                 WindowWidth = 180;
             }
+
             void ReadAndClear()
             {
                 ReadKey();
@@ -109,12 +117,12 @@ namespace MSSA_Roguelike___Mini_Project
             }
             void Dialog(string input, int cursorX, int cursorY)
             {
-                Console.WriteLine(input);
+                SetCursorPosition(cursorX, cursorY);
+                ForegroundColor = ConsoleColor.Blue;
+                WriteLine(input);
+                ResetColor();
             }
-            void Loading()
-            {
 
-            }
         }
     }
 }

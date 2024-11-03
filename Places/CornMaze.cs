@@ -81,6 +81,7 @@ namespace MSSA_Roguelike___Mini_Project.Places
         {
             //Variables
             bool exit = false;
+            bool hasKey = false;
 
             while (exit == false)
             {
@@ -91,7 +92,28 @@ namespace MSSA_Roguelike___Mini_Project.Places
                 PlayerInput();
 
                 //Event Handler
-                ///Dependent on certain things - - Check notebook///
+                string currentLocation = Maze_GameHandler.GetElementAt(Player_Maze.X, Player_Maze.Y);
+
+                switch (currentLocation)
+                {
+                    case "#":
+                        WriteLine("> I got the Graveyard Key!");
+                        hasKey = true;
+                        ReadKey();
+                        break;
+
+                    case ">":
+                        if (hasKey)
+                        {
+                            Clear();
+                            exit = true;
+                        }
+                        else
+                        {
+                            WriteLine("> I think there is something I need to get here...");
+                        }
+                        break;
+                }
 
                 //Render console
                 Thread.Sleep(10);
