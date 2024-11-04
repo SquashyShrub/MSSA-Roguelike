@@ -43,7 +43,7 @@ namespace MSSA_Roguelike___Mini_Project
 
                     case 2:
                         //See credit screen
-                        WriteLine("CREDITS");
+                        WriteLine("ARTWORK");
                         WriteLine(@"
     * CHURCH EXTERIOR ART:      Joan Stark                      https://www.asciiart.eu/buildings-and-places/church
 
@@ -63,6 +63,25 @@ namespace MSSA_Roguelike___Mini_Project
 
     * TEXT ART:                 patorjk.com                     https://patorjk.com/software/taag/#p=display&h=2&v=0&f=BlurVision%20ASCII&t=Type%20Something%20
 
+MUSIC
+
+    * TOWN SQUARE THEME SONG:   Myself                          ""Town Square Theme""
+
+    * CHURCH THEME SONG:        Mystical Fire                   ""Groovy Spooky House""
+
+    * CHURCH BATTLE SONG:       John Nesky                      ""Fay Witch Commune""
+
+    * MAZE SONG:                Spooky Sandwich                  No song name
+
+    * GRAVEYARD THEME SONG:     Mystical Fire                   ""Halloween Type Beat""
+
+    * GRAVEYARD BATTLE SONG:    Myself                          ""8-Bit Transposed Bloody Tears""
+
+    * BARN THEME SONG:          Spooky Sandwich                 ""Strange Scale""
+
+    * BARN BATTLE SONG:         Scarf Ghost                      No song name
+
+
 WEBSITES USED
 
     * ASCII Flow                                                https://asciiflow.com/
@@ -71,7 +90,9 @@ WEBSITES USED
 
     * Google Images             Google                          https://images.google.com/
 
-    * ASCII Image convertor     Injosoft                        https://www.asciiart.eu/image-to-ascii");
+    * ASCII Image convertor     Injosoft                        https://www.asciiart.eu/image-to-ascii
+
+    * BeepBox                   John Nesky                      https://www.beepbox.co/");
                         ReadKey();
                         break; //Credits
 
