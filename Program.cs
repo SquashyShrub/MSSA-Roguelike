@@ -27,6 +27,7 @@ namespace MSSA_Roguelike___Mini_Project
             CornMaze maze = new CornMaze();
             Graveyard grave = new Graveyard();
             Barn barn = new Barn();
+            Battlegrounds battle = new Battlegrounds();
 
             #endregion Game Objects
 
@@ -38,13 +39,14 @@ namespace MSSA_Roguelike___Mini_Project
             WriteLine("Press any key to start...");
             ReadAndClear();
 
-            introOutro.DisplayIntro();
-            world.Loading(2);
+            //introOutro.DisplayIntro();
+            //world.Loading(2);
 
             //Conditionals
             bool exit = false;
-            bool barnUnlocked = false;
-            bool hasKey = false;
+            bool alive = true;
+            bool barnUnlocked = true;
+            bool hasKey = true;
             bool churchVisit = false;
 
             do
@@ -65,7 +67,7 @@ namespace MSSA_Roguelike___Mini_Project
                         }
                         else
                         {
-                            Dialog("It's locked...Is there a key somewhere?", 58, 44);
+                            Dialog("It's locked...Is there a key somewhere?", 58, 45);
                             ReadKey(true);
                         }
                         break;
@@ -85,16 +87,23 @@ namespace MSSA_Roguelike___Mini_Project
                     case 3:
                         //Barn - BOSS
                         if (barnUnlocked)
+                        {
                             barn.Start();
+                            alive = false;
+                            exit = true;
+                        }
                         else
                         {
-                            Dialog("I feel like I should explore more...", 58, 44);
+                            Dialog("I feel like I should explore more...", 58, 45);
                             ReadKey(true);
                         }
                         break;
                 }
 
             } while(exit != true);
+
+            if (!alive)
+                introOutro.DisplayOutroDead();
 
             ReadAndClear();
 
@@ -109,7 +118,6 @@ namespace MSSA_Roguelike___Mini_Project
                 WindowHeight = 60;
                 WindowWidth = 180;
             }
-
             void ReadAndClear()
             {
                 ReadKey();

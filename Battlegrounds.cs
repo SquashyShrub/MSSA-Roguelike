@@ -13,7 +13,7 @@ namespace MSSA_Roguelike___Mini_Project
     {
         private Random randGenerator;
 
-        Player Jimmy = new Player(0, 0, "Jimmy", 200, ConsoleColor.Cyan, 6);
+        Player Jimmy = new Player(0, 0, "Jimmy", 10, ConsoleColor.Cyan, 6);
 
         Ghosts ghost1 = new Ghosts("Spooky Ghost", 51, "Ghosts", ConsoleColor.DarkGray);
         Ghosts ghost2 = new Ghosts("That one guy that died", 45, "Ghosts", ConsoleColor.Gray);
@@ -25,6 +25,8 @@ namespace MSSA_Roguelike___Mini_Project
 
         Reaper reaper = new Reaper("Part Time Death", 250, "Reaper", ConsoleColor.DarkRed);
 
+        public bool alive = true;
+
         public Battlegrounds()
         {
             //Add Ghosts
@@ -35,6 +37,9 @@ namespace MSSA_Roguelike___Mini_Project
 
         public void churchBattle()
         {
+
+            ChurchDialog(75, 22);
+
             int ghostCount = 3;
             while ( ghostCount > 0)
             {
@@ -43,7 +48,7 @@ namespace MSSA_Roguelike___Mini_Project
                 {
                     Clear();
                     DisplayInfos();
-                    Jimmy.Battle(currentGhost, 0, 22);
+                    Jimmy.Battle(currentGhost, 0, 23);
                     if (currentGhost.health <= 0)
                         break;
 
@@ -60,7 +65,7 @@ namespace MSSA_Roguelike___Mini_Project
 
                     void DisplayInfos()
                     {
-                        currentGhost.DisplayInfo();
+                        currentGhost.DisplayInfo(0, 0, 2, 0);
                         Jimmy.DisplayHealthBar();
                         Jimmy.DisplayStaminaBar();
                         WriteLine();
@@ -71,7 +76,7 @@ namespace MSSA_Roguelike___Mini_Project
                 if (currentGhost.health <= 0)
                 {
                     Clear();
-                    WriteLine($"Jimmy has slain {currentGhost}!");
+                    WriteLine($"Jimmy has slain {currentGhost.name}!");
                     if (ghostCount > 0)
                     {
                         WriteLine("Another approaches!");
@@ -93,11 +98,14 @@ namespace MSSA_Roguelike___Mini_Project
 
         public void graveBattle()
         {
+            //INTRO TO FIGHT HERE
+            GraveDialog(WindowWidth/2 - 25, WindowHeight/2);
+
             while (true)
             {
                 Clear();
                 DisplayInfo();
-                Jimmy.Battle(skeleton, 0, 40);
+                Jimmy.Battle(skeleton, 0, 42);
                 if (skeleton.health <= 0)
                     break;
 
@@ -114,7 +122,7 @@ namespace MSSA_Roguelike___Mini_Project
 
                 void DisplayInfo()
                 {
-                    skeleton.DisplayInfo();
+                    skeleton.DisplayInfo(0, 0, 2, 0);
                     Jimmy.DisplayHealthBar();
                     Jimmy.DisplayStaminaBar();
                     WriteLine();
@@ -138,15 +146,20 @@ namespace MSSA_Roguelike___Mini_Project
             }
         }
 
-        public void barnBattle()
+        public int barnBattle()
         {
-            while (true)
+            //INTRO TO FIGHT HERE
+            BarnDialog(70, 20);
+            int returnInt = 0;
+
+            bool exit = false;
+            while (exit == false)
             {
                 while (true)
                 {
                     Clear();
                     DisplayInfo();
-                    Jimmy.Battle(reaper, 0, 44);
+                    Jimmy.Battle(reaper, 0, 46);
                     if (reaper.health <= 0)
                         break;
 
@@ -163,7 +176,7 @@ namespace MSSA_Roguelike___Mini_Project
 
                     void DisplayInfo()
                     {
-                        reaper.DisplayInfo();
+                        reaper.DisplayInfo(0, 0, 1, 0);
                         Jimmy.DisplayHealthBar();
                         Jimmy.DisplayStaminaBar();
                         WriteLine();
@@ -174,18 +187,104 @@ namespace MSSA_Roguelike___Mini_Project
                 if (reaper.health <= 0)
                 {
                     Clear();
-                    WriteLine($"Jimmy has slain death!");
-                    WriteLine("...\nYou were not supposed to defeat death...");
-                    ReadKey(true);
+                    returnInt = 1;
+                    alive = true;
+
                 }
                 else
                 {
                     Clear();
-                    WriteLine("You thought you could beat death? No one beats death.");
-                    WriteLine("You will now exit the game");
-                    ReadKey(true);
-                    Environment.Exit(0);
+                    returnInt = 2;
+                    alive = false;
                 }
+                exit = true;
+            }
+            return returnInt;
+        }
+
+        public void ChurchDialog(int cursorX, int cursorY)
+        {
+            Clear();
+
+            List<string> list = new List<string>();
+            list.Add("Suddenly, the air gets cold...");
+            list.Add("Shivering, the sword quivering in his hands");
+            list.Add("Jimmy see's a faint outline moving towards him");
+            list.Add("A plasmic entity shoots forward throwing a punch of vicious speed");
+            list.Add("Barely dodging the attack, Jimmy counters...");
+
+            for (int i = 0; i < list.Count; i++)
+            {
+                SetCursorPosition(cursorX, cursorY);
+                foreach (char c in list[i])
+                {
+                    Write(c);
+                    Thread.Sleep(10);
+                }
+                Thread.Sleep(3000);
+                for (int j = list[i].Length - 1; j >= 0; j--)
+                {
+                    Write(" ");
+                }
+                Clear();
+            }
+        }
+        public void GraveDialog(int cursorX, int cursorY)
+        {
+            Clear();
+
+            List<string> list = new List<string>();
+            list.Add("Walking into the graveyard, you see a skeleton boppin to some tunes...");
+            list.Add("Jimmy approaches the skeleton cautiously. \"He look's chill\" Jimmy thinks to himself...");
+            list.Add("\"Hey...\" ");
+            list.Add("            ");
+            list.Add("Before the words leave Jimmy's lips, the 'Chill Skeleton' without hesitation raises his sword and swings with incredible speed");
+            list.Add("Evading the attacks, Jimmy is sliced in the arm...");
+            list.Add("Blood boiling, Jimmy raises his sword to counter...");
+
+            for (int i = 0; i < list.Count; i++)
+            {
+                SetCursorPosition(cursorX, cursorY);
+                foreach (char c in list[i])
+                {
+                    Write(c);
+                    Thread.Sleep(10);
+                }
+                Thread.Sleep(3000);
+                for (int j = list[i].Length - 1; j >= 0; j--)
+                {
+                    Write(" ");
+                }
+                Clear();
+            }
+        }
+        public void BarnDialog(int cursorX, int cursorY)
+        {
+            Clear();
+
+            List<string> list = new List<string>();
+            list.Add("Turning towards Jimmy, Nothing is behind the hood...");
+            list.Add("\"I am Death\", says the creature");
+            list.Add("\"Well, part time at least\" ");
+            list.Add("            ");
+            list.Add("\"You have met your end, Jimmy.\" Death raises his scythe, ready to smite");
+            list.Add("\"Try me\", Jimmy says with false confidence...");
+            list.Add("Jimmy charges with his attack...");
+
+            for (int i = 0; i < list.Count; i++)
+            {
+                SetCursorPosition(cursorX, cursorY);
+                foreach (char c in list[i])
+                {
+                    Write(c);
+                    Thread.Sleep(10);
+                }
+                Thread.Sleep(3000);
+                for (int j = list[i].Length - 1; j >= 0; j--)
+                {
+                    Write(" ");
+                }
+                Clear();
             }
         }
 

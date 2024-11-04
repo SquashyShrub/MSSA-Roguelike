@@ -24,6 +24,35 @@ namespace MSSA_Roguelike___Mini_Project
                     case 0:
                         //Display intro dialog and backstory
                         //go to town square (Handled in program)
+                        void OutroDialog(int cursorX, int cursorY)
+                        {
+                            Clear();
+
+                            List<string> list = new List<string>();
+                            list.Add("               ");
+                            list.Add("\"What...what is going on...where am I?\"");
+                            list.Add("Jimmy notices a figure afar...It disappears...");
+                            list.Add("\"Wait! Who are you?...\"");
+                            list.Add("\"I have to figure out what's happening...\"");
+                            list.Add("                  ");
+                            list.Add("Jimmy follows a path that leads to an abandoned Townsquare...");
+
+                            for (int i = 0; i < list.Count; i++)
+                            {
+                                SetCursorPosition(cursorX, cursorY);
+                                foreach (char c in list[i])
+                                {
+                                    Write(c);
+                                    Thread.Sleep(10);
+                                }
+                                Thread.Sleep(2000);
+                                for (int j = list[i].Length - 1; j >= 0; j--)
+                                {
+                                    Write(" ");
+                                }
+                                Clear();
+                            }
+                        }
                         break;
 
                     case 1:
@@ -104,18 +133,116 @@ WEBSITES USED
                 }
             }
 
-
-
             Clear();
         }
+
+        public void DisplayOutroLived() //After fighting Death
+        {
+            //Woken up from a dream
+            //Surrounded by doctors
+            Clear();
+            OutroDialog(75, 20);
+            WriteLine("To be Continued...");
+
+            void OutroDialog(int cursorX, int cursorY)
+            {
+                Clear();
+
+                List<string> list = new List<string>();
+                list.Add("Voice 1: Welcome back...");
+                list.Add("Voice 2: We almost lost you there :)");
+                list.Add("Behind their shoulder, you see a dark figure walking away");
+                list.Add("Voice 1: We'll get your family in here right away okay?");
+                list.Add("Voice 2: You just rest. They'll be here shortly");
+                list.Add("                  ");
+                list.Add("Voice 3: Baby! ");
+                list.Add("     ...        ");
+
+                for (int i = 0; i < list.Count; i++)
+                {
+                    SetCursorPosition(cursorX, cursorY);
+                    foreach (char c in list[i])
+                    {
+                        Write(c);
+                        Thread.Sleep(10);
+                    }
+                    Thread.Sleep(2000);
+                    for (int j = list[i].Length - 1; j >= 0; j--)
+                    {
+                        Write(" ");
+                    }
+                    Clear();
+                }
+            }
+        }
+        public void DisplayOutroDead()
+        {
+            Clear();
+            art.DrawArt(art.worldArt["YouDied"]);
+            Thread.Sleep(3000);
+            art.Erase(art.worldArt["YouDied"], 6);
+            OutroDialog(75, 20);
+
+            void OutroDialog(int cursorX, int cursorY)
+            {
+                Clear();
+
+                List<string> list = new List<string>();
+                list.Add("Voice 1: Give me the ... now!");
+                list.Add("Voice 2: Ther 's... to...I ca.. stop i...");
+                list.Add("Voice 1: Ther...we n..d suc..ion no.! ");
+                list.Add("Voice 3: I...Ca...no! Ca..' be! ");
+                list.Add("Voice 1: Call it.");
+                list.Add("                  ");
+                
+                List<string> list2 = new List<string>();
+                list2.Add("Voice 2: 17:09, dead");
+                list2.Add("A blinding light fills Jimmy's head...");
+                list2.Add("Slowly corrupted by the dark...");
+                list2.Add("Death smiles sinisterly...");
+                list2.Add("\"It's not over Death...\" ");
+
+                for (int i = 0; i < list.Count; i++)
+                {
+                    SetCursorPosition(cursorX, cursorY);
+                    foreach (char c in list[i])
+                    {
+                        Write(c);
+                        Thread.Sleep(10);
+                    }
+                    Thread.Sleep(2000);
+                    for (int j = list[i].Length - 1; j >= 0; j--)
+                    {
+                        Write(" ");
+                    }
+                    Clear();
+                }
+                for (int i = 0; i < list2.Count; i++)
+                {
+                    SetCursorPosition(cursorX, cursorY);
+                    foreach (char c in list2[i])
+                    {
+                        Write(c);
+                        Thread.Sleep(10);
+                    }
+                    Thread.Sleep(3000);
+                    for (int j = list2[i].Length - 1; j >= 0; j--)
+                    {
+                        Write(" ");
+                    }
+                    Clear();
+                }
+            }
+            
+            SetCursorPosition(70, 25);
+            Thread.Sleep(2000);
+            WriteLine("To be Continued...");
+        }
+
         private void Loading()
         {
             SetCursorPosition(WindowWidth / 2, WindowHeight / 2);
-            WriteLine("Sorry to see you go");
-            
+            WriteLine("Sorry to see you go");  
         }
-
-
-
     }
 }

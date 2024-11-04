@@ -14,6 +14,7 @@ namespace MSSA_Roguelike___Mini_Project.Places
         Player Player_Barn;
         Artwork Artwork_Barn = new Artwork();
         Battlegrounds battle = new Battlegrounds();
+        IntroOutro outro = new IntroOutro();
 
         public void Start()
         {
@@ -95,7 +96,21 @@ namespace MSSA_Roguelike___Mini_Project.Places
                 switch (currentLocation)
                 {
                     case "X":
-                        battle.barnBattle();
+                        switch(battle.barnBattle())
+                        {
+                            case 1:
+                                outro.DisplayOutroLived();
+                                SetCursorPosition(70, 25);
+                                Thread.Sleep(2000);
+                                WriteLine("To be Continued...");
+                                ReadKey();
+                                Environment.Exit(0);
+                                break;
+
+                            case 2:
+                                exit = true;
+                                break;
+                        }
                         break;
                 }
 

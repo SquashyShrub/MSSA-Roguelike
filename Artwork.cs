@@ -61,6 +61,9 @@ namespace MSSA_Roguelike___Mini_Project
             string[,] GameControls = TextParser.ParseFileToArray("C:\\MSSA\\DS_Algo\\MSSA Roguelike - Mini Project\\TextFiles\\MenuTexts\\GameControls.txt");
             worldArt.Add("GameControls", GameControls);
 
+            string[,] YouDied = TextParser.ParseFileToArray("C:\\MSSA\\DS_Algo\\MSSA Roguelike - Mini Project\\TextFiles\\MenuTexts\\YouDied.txt");
+            worldArt.Add("YouDied", YouDied);
+
             #endregion Add Artwork to Dictionary
         }
 
