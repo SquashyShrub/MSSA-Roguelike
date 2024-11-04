@@ -22,9 +22,9 @@ namespace MSSA_Roguelike___Mini_Project
                 switch (response)
                 {
                     case 0:
-                        //Display intro dialog and backstory
+                        //IntroDialog(70, 20);
                         //go to town square (Handled in program)
-                        void OutroDialog(int cursorX, int cursorY)
+                        void IntroDialog(int cursorX, int cursorY)
                         {
                             Clear();
 
@@ -234,7 +234,7 @@ WEBSITES USED
                 }
             }
             
-            SetCursorPosition(70, 25);
+            SetCursorPosition(70, 20);
             Thread.Sleep(2000);
             WriteLine("To be Continued...");
         }

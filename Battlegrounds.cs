@@ -12,8 +12,10 @@ namespace MSSA_Roguelike___Mini_Project
     internal class Battlegrounds
     {
         private Random randGenerator;
+        private MusicThemes battleTheme = new MusicThemes();
+        IntroOutro outro = new IntroOutro();
 
-        Player Jimmy = new Player(0, 0, "Jimmy", 10, ConsoleColor.Cyan, 6);
+        Player Jimmy = new Player(0, 0, "Jimmy", 200, ConsoleColor.Cyan, 6);
 
         Ghosts ghost1 = new Ghosts("Spooky Ghost", 51, "Ghosts", ConsoleColor.DarkGray);
         Ghosts ghost2 = new Ghosts("That one guy that died", 45, "Ghosts", ConsoleColor.Gray);
@@ -37,8 +39,8 @@ namespace MSSA_Roguelike___Mini_Project
 
         public void churchBattle()
         {
-
-            ChurchDialog(75, 22);
+            battleTheme.Play(battleTheme.churchBattle);
+            ChurchDialog(70, 20);
 
             int ghostCount = 3;
             while ( ghostCount > 0)
@@ -88,18 +90,18 @@ namespace MSSA_Roguelike___Mini_Project
                 {
                     Clear();
                     WriteLine("Jimmy died even with all that health generously given to him by his creator");
-                    WriteLine("You will now exit the game");
-                    ReadKey(true);
+                    outro.DisplayOutroDead();
                     Environment.Exit(0);
                     break;
                 }
             }
+            battleTheme.Play(battleTheme.churchTheme);
         }
 
         public void graveBattle()
-        {
-            //INTRO TO FIGHT HERE
-            GraveDialog(WindowWidth/2 - 25, WindowHeight/2);
+        { 
+            battleTheme.Play(battleTheme.graveBattle);
+            GraveDialog(50, 20);
 
             while (true)
             {
@@ -132,6 +134,7 @@ namespace MSSA_Roguelike___Mini_Project
             }
             if (skeleton.health <= 0)
             {
+                battleTheme.Play(battleTheme.graveTheme);
                 Clear();
                 WriteLine($"Jimmy has slain the skeleton of chill!");
                 ReadKey(true);
@@ -140,7 +143,7 @@ namespace MSSA_Roguelike___Mini_Project
             {
                 Clear();
                 WriteLine("Jimmy died. Those combos were vicious.");
-                WriteLine("You will now exit the game");
+                outro.DisplayOutroDead();
                 ReadKey(true);
                 Environment.Exit(0);
             }
@@ -148,8 +151,9 @@ namespace MSSA_Roguelike___Mini_Project
 
         public int barnBattle()
         {
-            //INTRO TO FIGHT HERE
+            battleTheme.Play(battleTheme.barnBattle);
             BarnDialog(70, 20);
+            Thread.Sleep(3500);
             int returnInt = 0;
 
             bool exit = false;
@@ -184,6 +188,7 @@ namespace MSSA_Roguelike___Mini_Project
                         WriteLine();
                     }
                 }
+                battleTheme.Play(battleTheme.barnTheme);
                 if (reaper.health <= 0)
                 {
                     Clear();
@@ -234,13 +239,9 @@ namespace MSSA_Roguelike___Mini_Project
             Clear();
 
             List<string> list = new List<string>();
-            list.Add("Walking into the graveyard, you see a skeleton boppin to some tunes...");
-            list.Add("Jimmy approaches the skeleton cautiously. \"He look's chill\" Jimmy thinks to himself...");
             list.Add("\"Hey...\" ");
-            list.Add("            ");
-            list.Add("Before the words leave Jimmy's lips, the 'Chill Skeleton' without hesitation raises his sword and swings with incredible speed");
-            list.Add("Evading the attacks, Jimmy is sliced in the arm...");
-            list.Add("Blood boiling, Jimmy raises his sword to counter...");
+            list.Add("Before the words leave Jimmy's lips, 'Chill Skeleton' without hesitation swings sword with incredible speed");
+            list.Add("Jimmy finds an opening and attacks...");
 
             for (int i = 0; i < list.Count; i++)
             {
@@ -250,7 +251,7 @@ namespace MSSA_Roguelike___Mini_Project
                     Write(c);
                     Thread.Sleep(10);
                 }
-                Thread.Sleep(3000);
+                Thread.Sleep(1800);
                 for (int j = list[i].Length - 1; j >= 0; j--)
                 {
                     Write(" ");

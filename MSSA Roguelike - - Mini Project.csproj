@@ -34,9 +34,6 @@
     <None Update="Music\MSSA Roguelike Maze Theme.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Music\MSSA Roguelike Townsquare Theme.mp3">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Update="TextFiles\Artwork\BarnEntrance.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

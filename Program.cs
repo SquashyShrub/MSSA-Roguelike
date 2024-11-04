@@ -1,4 +1,5 @@
-﻿using System.Security.Cryptography.X509Certificates;
+﻿using System.Media;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using MSSA_Roguelike___Mini_Project.Characters;
 using MSSA_Roguelike___Mini_Project.Places;
@@ -18,6 +19,8 @@ namespace MSSA_Roguelike___Mini_Project
 
             Artwork gameArt = new Artwork();
             Menu menus = new Menu();
+            MusicThemes music = new MusicThemes();
+
             Items graveKey = new Items("Graveyard Key", 1);
             Items sword = new Items("Sword", 1);
 
@@ -39,8 +42,17 @@ namespace MSSA_Roguelike___Mini_Project
             WriteLine("Press any key to start...");
             ReadAndClear();
 
-            //introOutro.DisplayIntro();
-            //world.Loading(2);
+            //world.Loading(1, "Loading Assets");
+            //world.Loading(1, "Loading Art");
+            //world.Loading(2, "Loading Music");
+            //Thread.Sleep(1000);
+
+            music.Play(music.townSquareTheme);
+
+            //Thread.Sleep(500);
+            introOutro.DisplayIntro();
+            world.Loading(2);
+
 
             //Conditionals
             bool exit = false;
@@ -60,6 +72,7 @@ namespace MSSA_Roguelike___Mini_Project
                 {
                     case 0:
                         //Graveyard
+                        music.Play(music.graveTheme);
                         if (hasKey)
                         {
                             grave.Start();
@@ -74,18 +87,21 @@ namespace MSSA_Roguelike___Mini_Project
 
                     case 1:
                         //Church
+                        music.Play(music.churchTheme);
                         church.Start();
                         churchVisit = true;
                         break;
 
                     case 2:
                         //Corn Maze
+                        music.Play(music.mazeTheme);
                         maze.Start();
                         hasKey = true;
                         break;
 
                     case 3:
                         //Barn - BOSS
+                        music.Play(music.barnTheme);
                         if (barnUnlocked)
                         {
                             barn.Start();
@@ -99,9 +115,11 @@ namespace MSSA_Roguelike___Mini_Project
                         }
                         break;
                 }
+                music.Play(music.townSquareTheme);
 
             } while(exit != true);
 
+            music.Play(music.barnTheme);
             if (!alive)
                 introOutro.DisplayOutroDead();
 

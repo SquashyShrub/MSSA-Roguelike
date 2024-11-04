@@ -112,9 +112,8 @@ namespace MSSA_Roguelike___Mini_Project
         /// Enter a load time in seconds, and it will give a simple loading screen
         /// </summary>
         /// <param name="loadTime"></param>
-        public void Loading(int loadTime)
+        public void Loading(int loadTime, string input = "Loading...")
         {
-            string input = "Loading...";
             int load = loadTime * 1000;
             int indvLoad = load / 24;
             StringBuilder sb = new StringBuilder();

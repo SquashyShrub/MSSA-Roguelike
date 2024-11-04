@@ -115,7 +115,7 @@ namespace MSSA_Roguelike___Mini_Project.Places
                 }
 
                 //Render console
-                Thread.Sleep(150);
+                Thread.Sleep(10);
             }
         }
 
