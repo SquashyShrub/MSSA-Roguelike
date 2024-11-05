@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 using MSSA_Roguelike___Mini_Project.Characters;
 using static System.Console;
 
@@ -12,6 +13,7 @@ namespace MSSA_Roguelike___Mini_Project.Places
     {
         private World Maze_GameHandler;
         private Player Player_Maze;
+        private Player Chaser;
         private Artwork Artwork_Maze = new Artwork();
 
         public void Start()
@@ -21,6 +23,7 @@ namespace MSSA_Roguelike___Mini_Project.Places
             string[,] mazeGrid = TextParser.ParseFileToArray("C:\\MSSA\\DS_Algo\\MSSA Roguelike - Mini Project\\TextFiles\\Maps\\CornMazeInterior.txt");
 
             Player_Maze = new Player(2, 9, "Jimmy", 200, ConsoleColor.Cyan, 6);
+            Chaser = new Player(2, 9, "Chaser", 10000, ConsoleColor.Red, 10);
             Maze_GameHandler = new World(mazeGrid);
 
             #region Display Maze Entrance
@@ -38,11 +41,22 @@ namespace MSSA_Roguelike___Mini_Project.Places
 
         }
 
+        int chaserCount = 3;
         private void DrawFrame()
         {
             Clear();
             Maze_GameHandler.DrawGrid();
             Player_Maze.DrawPlayer();
+
+            //Draw the chase
+            if (chaserCount != 0)
+            {
+                chaserCount--;
+            }
+            else
+            {
+                //draw chaser
+            }
         }
         private void PlayerInput()
         {
@@ -82,16 +96,16 @@ namespace MSSA_Roguelike___Mini_Project.Places
             //Variables
             bool exit = false;
             bool hasKey = false;
+            
 
             while (exit == false)
             {
+
                 //Draw frame
                 DrawFrame();
 
                 //Get player input
                 PlayerInput();
-
-                //Draw the chaser
 
                 //Event Handler
                 string currentLocation = Maze_GameHandler.GetElementAt(Player_Maze.X, Player_Maze.Y);
@@ -107,6 +121,8 @@ namespace MSSA_Roguelike___Mini_Project.Places
                     case ">":
                         if (hasKey)
                         {
+                            Write("That was wild...");
+                            Thread.Sleep(2500);
                             Clear();
                             exit = true;
                         }

@@ -12,7 +12,6 @@ namespace MSSA_Roguelike___Mini_Project
     internal class Battlegrounds
     {
         //Objects
-        private Random randGenerator;
         private MusicThemes battleTheme = new MusicThemes();
         IntroOutro outro = new IntroOutro();
         Menu menu = new Menu();
@@ -45,7 +44,7 @@ namespace MSSA_Roguelike___Mini_Project
         public void churchBattle()
         {
             battleTheme.Play(battleTheme.churchBattle);
-            ChurchDialog(70, 20);
+            ChurchDialog(80, 20);
 
             int ghostCount = 3;
             while ( ghostCount > 0)
@@ -252,7 +251,7 @@ namespace MSSA_Roguelike___Mini_Project
 
             List<string> list = new List<string>();
             list.Add("\"Hey...\" ");
-            list.Add("Before the words leave Jimmy's lips, 'Chill Skeleton' without hesitation swings sword with incredible speed");
+            list.Add("Before the words leave Jimmy's lips, with incredible speed 'Chill Skeleton' swings his sword without hesitation!");
             list.Add("Jimmy finds an opening and attacks...");
 
             for (int i = 0; i < list.Count; i++)

@@ -22,7 +22,7 @@ namespace MSSA_Roguelike___Mini_Project
                 switch (response)
                 {
                     case 0:
-                        IntroDialog(70, 20);
+                        IntroDialog(86, 20);
                         //go to town square (Handled in program)
                         void IntroDialog(int cursorX, int cursorY)
                         {
@@ -59,14 +59,27 @@ namespace MSSA_Roguelike___Mini_Project
                         //Game Controls screen
                         ForegroundColor = ConsoleColor.Green;
                         WriteLine("GAME CONTROLS");
+
                         ForegroundColor = ConsoleColor.DarkYellow;
-                        WriteLine("\nUse the arrow keys to move and select different options");
-                        WriteLine("\n'X' are enemies");
-                        WriteLine("\n'O' are things to explore");
-                        WriteLine("\n'>' and '<' are your exits");
-                        WriteLine("\n'#' is an item");
+                        WriteLine("\n* Use the arrow keys to move and select different options");
+                        WriteLine("\n* Press enter to select and option");
+                        WriteLine("\n* 'X's are enemies");
+                        WriteLine("\n* 'O's are things to explore");
+                        WriteLine("\n* '>'s and '<'s are your exits");
+                        WriteLine("\n* '#'s is an item\n\n");
+
+                        ForegroundColor = ConsoleColor.Green;
+                        WriteLine("THINGS TO NOTE");
+
+                        ForegroundColor = ConsoleColor.Blue;
+                        WriteLine("\n* When in a cut scene, refrain from pressing any key too many times as it is known to cause issues with the game");
+                        WriteLine("\n* To continue dialog, simply press any key on the keyboard");
+                        WriteLine("\n* Each enemy has different skill sets, adjust your strategy accordingly");
+                        WriteLine("\n* Once you complete the storyline, the game will exit. If you wish to play again, please re-open the application");
+                        WriteLine("\n* Best of Luck!");
                         ResetColor();
-                        WriteLine("\n\n>>Press any key to continue<<");
+
+                        WriteLine("\n\n>> Press any key to return to the menu <<");
                         ReadKey();
                         break; //Game controls
 
@@ -104,35 +117,40 @@ namespace MSSA_Roguelike___Mini_Project
 
     * TEXT ART:                 patorjk.com                              https://patorjk.com/software/taag/#p=display&h=2&v=0&f=BlurVision%20ASCII&t=Type%20Something%20
 
-MUSIC
 
-    * TOWN SQUARE THEME SONG:   Myself                          ""Town Square Theme""
+MUSIC - ALL MUSIC WAS WITH BEEPBOX
 
-    * CHURCH THEME SONG:        Mystical Fire                   ""Groovy Spooky House""
+    * TOWN SQUARE THEME SONG:   Myself                                  ""Town Square Theme""
 
-    * CHURCH BATTLE SONG:       John Nesky                      ""Fay Witch Commune""
+    * CHURCH THEME SONG:        Mystical Fire                           ""Groovy Spooky House""
 
-    * MAZE SONG:                Spooky Sandwich                  No song name
+    * CHURCH BATTLE SONG:       John Nesky                              ""Fay Witch Commune""
 
-    * GRAVEYARD THEME SONG:     Mystical Fire                   ""Halloween Type Beat""
+    * MAZE SONG:                Spooky Sandwich                           No song name
 
-    * GRAVEYARD BATTLE SONG:    Myself                          ""8-Bit Transposed Bloody Tears""
+    * GRAVEYARD THEME SONG:     Mystical Fire                           ""Halloween Type Beat""
 
-    * BARN THEME SONG:          Spooky Sandwich                 ""Strange Scale""
+    * GRAVEYARD BATTLE SONG:    Myself                                  ""8-Bit Transposed Bloody Tears""
 
-    * BARN BATTLE SONG:         Scarf Ghost                      No song name
+    * BARN THEME SONG:          Spooky Sandwich                         ""Strange Scale""
+
+    * BARN BATTLE SONG:         Scarf Ghost                               No song name
+
 
 WEBSITES USED
 
-    * ASCII Flow                                                https://asciiflow.com/
+    * ASCII Flow                                                         https://asciiflow.com/
     
-    * ASCII Art Archive         Injosoft                        https://www.asciiart.eu/
+    * ASCII Art Archive         Injosoft                                 https://www.asciiart.eu/
 
-    * Google Images             Google                          https://images.google.com/
+    * Google Images             Google                                   https://images.google.com/
 
-    * ASCII Image convertor     Injosoft                        https://www.asciiart.eu/image-to-ascii
+    * ASCII Image convertor     Injosoft                                 https://www.asciiart.eu/image-to-ascii
 
-    * BeepBox                   John Nesky                      https://www.beepbox.co/
+    * BeepBox                   John Nesky                               https://www.beepbox.co/
+
+    * BeepBox Archive           Twitter Bot                              https://twitter-archive.beepbox.co/
+
 
 GAME DESIGN
 
@@ -142,7 +160,10 @@ GAME DESIGN
     
     * Implementation            Myself
 
-    * Tester                    Myself");
+    * Tester                    Myself
+
+
+>> Press any key to return to the menu <<");
 
                         ReadKey();
                         Clear();
@@ -164,7 +185,7 @@ GAME DESIGN
             //Woken up from a dream
             //Surrounded by doctors
             Clear();
-            OutroDialog(75, 20);
+            OutroDialog(86, 20);
             WriteLine("To be Continued...");
 
             void OutroDialog(int cursorX, int cursorY)
@@ -204,7 +225,7 @@ GAME DESIGN
             art.DrawArt(art.worldArt["YouDied"]);
             Thread.Sleep(3000);
             art.Erase(art.worldArt["YouDied"], 8);
-            OutroDialog(75, 20);
+            OutroDialog(86, 20);
 
             void OutroDialog(int cursorX, int cursorY)
             {
@@ -258,7 +279,7 @@ GAME DESIGN
                 }
             }
             
-            SetCursorPosition(70, 20);
+            SetCursorPosition(86, 20);
             Thread.Sleep(2000);
             WriteLine("To be Continued...");
             Thread.Sleep(2000);

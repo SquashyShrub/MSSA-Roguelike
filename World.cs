@@ -120,6 +120,22 @@ namespace MSSA_Roguelike___Mini_Project
             for (int i = loadTime; i >= 0; i--)
             {
                 Clear();
+                SetCursorPosition(58, 12);
+                foreach (char c in input)
+                {
+                    Write(c);
+                    Thread.Sleep(indvLoad);
+                }
+            }
+        }
+        public void SceneLoad(int loadTime, string input = "Loading...")
+        {
+            int load = loadTime * 1000;
+            int indvLoad = load / 24;
+            StringBuilder sb = new StringBuilder();
+            for (int i = loadTime; i >= 0; i--)
+            {
+                Clear();
                 SetCursorPosition(WindowWidth / 2, WindowHeight / 2);
                 foreach (char c in input)
                 {

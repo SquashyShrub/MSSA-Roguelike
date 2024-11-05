@@ -151,6 +151,8 @@ namespace MSSA_Roguelike___Mini_Project.Places
                     case "<":
                         if (enemyDefeated == true)
                         {
+                            Write("Back to the town I go...");
+                            Thread.Sleep(2500);
                             Clear();
                             exit = true;
                         }
@@ -164,6 +166,8 @@ namespace MSSA_Roguelike___Mini_Project.Places
                     case ">":
                         if (enemyDefeated == true)
                         {
+                            Write("What a terrible church...");
+                            Thread.Sleep(2500);
                             Clear();
                             exit = true;
                         }

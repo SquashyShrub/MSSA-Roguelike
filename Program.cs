@@ -45,24 +45,46 @@ namespace MSSA_Roguelike___Mini_Project
 
             //Set Game Resolution
             DefaultResolution();
-            
+
             //Ensure correct window size
-            WriteLine("Press any key to start...");
+            ForegroundColor = ConsoleColor.Green;
+            SetCursorPosition(48, 12);
+            WriteLine("Press any key to load the game...");
+            ResetColor();
             ReadAndClear();
 
             //Load Assets Animation
-            //world.Loading(1, "Loading Assets");
-            //world.Loading(1, "Loading Art");
-            //world.Loading(2, "Loading Music");
-            //Thread.Sleep(1000);
+            world.Loading(1, "Loading Assets");
+            world.Loading(1, "Loading Art");
+            world.Loading(2, "Loading Music");
+            Thread.Sleep(1000);
+            Clear();
 
-            ////Start Music
-            //music.Play(music.townSquareTheme);
+            TryAgain:
+            try
+            {
+                //Start Music
+                music.Play(music.townSquareTheme);
 
-            ////Intro
-            //Thread.Sleep(500);
-            introOutro.DisplayIntro();
-            world.Loading(2);
+                //Intro
+                Thread.Sleep(500);
+                introOutro.DisplayIntro();
+                world.SceneLoad(2);
+            }
+            catch
+            {
+                Clear();
+                music.Stop(music.townSquareTheme);
+                ForegroundColor = ConsoleColor.Red;
+                SetCursorPosition(20, 10);
+                WriteLine("Please ensure your window is fullscreen otherwise the program cannot run correctly");
+                SetCursorPosition(36, 12);
+                WriteLine("Once screen is full size, press any key to continue");
+                ForegroundColor = ConsoleColor.White;
+                ReadKey();
+
+                goto TryAgain;
+            }
 
             #endregion Initialize and Intro
 
