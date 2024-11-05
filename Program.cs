@@ -61,8 +61,8 @@ namespace MSSA_Roguelike___Mini_Project
 
             ////Intro
             //Thread.Sleep(500);
-            //introOutro.DisplayIntro();
-            //world.Loading(2);
+            introOutro.DisplayIntro();
+            world.Loading(2);
 
             #endregion Initialize and Intro
 

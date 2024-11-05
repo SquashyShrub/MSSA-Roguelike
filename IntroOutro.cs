@@ -74,23 +74,35 @@ namespace MSSA_Roguelike___Mini_Project
                         //See credit screen
                         WriteLine("ARTWORK");
                         WriteLine(@"
-    * CHURCH EXTERIOR ART:      Joan Stark                      https://www.asciiart.eu/buildings-and-places/church
+    * GRAVEYARD INTERIOR        Myself                                   https://asciiflow.com/
 
-    * BARN:                     No Artist Listed                https://www.asciiart.eu/buildings-and-places/houses
+    * MAZE INTERIOR             Myself                                   https://asciiflow.com/
 
-    * CORN MAZE START:          Spicer, Public Library Halls,   https://www.asciiart.eu/buildings-and-places/other
+    * CHURCH INTERIOR           Myself                                   https://asciiflow.com/
 
-    * SKELETON ART IDLE:        Nabis                           https://www.asciiart.eu/mythology/skeletons
+    * BARN INTERIOR             Myself                                   https://asciiflow.com/
 
-    * SKELETON ART ATTACK:      No Artist Listed                https://www.asciiart.eu/mythology/skeletons
+    * GRAVEYARD EXTERIOR ART:   Myself                                   https://asciiflow.com/
 
-    * GRIM REAPER ART:          jgs                             https://www.asciiart.eu/mythology/grim-reapers
+    * CHURCH EXTERIOR ART:      Joan Stark                               https://www.asciiart.eu/buildings-and-places/church
 
-    * GHOST ART:                jgs                             https://www.asciiart.eu/mythology/ghosts
+    * BARN EXTERIOR ART:        No Artist Listed                         https://www.asciiart.eu/buildings-and-places/houses
+
+    * TOWNSQUARE ART:           Myself (mashed together exterior arts)   https://asciiflow.com/
+
+    * CORN MAZE START:          Spicer, Public Library Halls,            https://www.asciiart.eu/buildings-and-places/other
+
+    * SKELETON ART IDLE:        Nabis                                    https://www.asciiart.eu/mythology/skeletons
+
+    * SKELETON ART ATTACK:      No Artist Listed                         https://www.asciiart.eu/mythology/skeletons
+
+    * GRIM REAPER ART:          jgs                                      https://www.asciiart.eu/mythology/grim-reapers
+
+    * GHOST ART:                jgs                                      https://www.asciiart.eu/mythology/ghosts
 
     * KEY ART:                  Myself
 
-    * TEXT ART:                 patorjk.com                     https://patorjk.com/software/taag/#p=display&h=2&v=0&f=BlurVision%20ASCII&t=Type%20Something%20
+    * TEXT ART:                 patorjk.com                              https://patorjk.com/software/taag/#p=display&h=2&v=0&f=BlurVision%20ASCII&t=Type%20Something%20
 
 MUSIC
 
@@ -110,7 +122,6 @@ MUSIC
 
     * BARN BATTLE SONG:         Scarf Ghost                      No song name
 
-
 WEBSITES USED
 
     * ASCII Flow                                                https://asciiflow.com/
@@ -121,7 +132,18 @@ WEBSITES USED
 
     * ASCII Image convertor     Injosoft                        https://www.asciiart.eu/image-to-ascii
 
-    * BeepBox                   John Nesky                      https://www.beepbox.co/");
+    * BeepBox                   John Nesky                      https://www.beepbox.co/
+
+GAME DESIGN
+
+    * Story Writer              Myself                          
+
+    * Development Guy           Myself
+    
+    * Implementation            Myself
+
+    * Tester                    Myself");
+
                         ReadKey();
                         Clear();
                         break; //Credits

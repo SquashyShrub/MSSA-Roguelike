@@ -91,6 +91,8 @@ namespace MSSA_Roguelike___Mini_Project.Places
                 //Get player input
                 PlayerInput();
 
+                //Draw the chaser
+
                 //Event Handler
                 string currentLocation = Maze_GameHandler.GetElementAt(Player_Maze.X, Player_Maze.Y);
 
