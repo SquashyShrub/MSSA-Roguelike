@@ -11,20 +11,23 @@ namespace MSSA_Roguelike___Mini_Project
 {
     internal class Battlegrounds
     {
+        //Objects
         private Random randGenerator;
         private MusicThemes battleTheme = new MusicThemes();
         IntroOutro outro = new IntroOutro();
+        Menu menu = new Menu();
 
+        //Player
         Player Jimmy = new Player(0, 0, "Jimmy", 200, ConsoleColor.Cyan, 6);
 
+        //Enemies
         Ghosts ghost1 = new Ghosts("Spooky Ghost", 51, "Ghosts", ConsoleColor.DarkGray);
         Ghosts ghost2 = new Ghosts("That one guy that died", 45, "Ghosts", ConsoleColor.Gray);
         Ghosts ghost3 = new Ghosts("Unusually buff ghost", 63, "Ghosts", ConsoleColor.DarkGray);
         Ghosts currentGhost;
         List<Ghosts> ghosts = new List<Ghosts>();
-        
-        Skeleton skeleton = new Skeleton("Chill Skeleton", 124, "Skeleton", ConsoleColor.Red);
 
+        Skeleton skeleton = new Skeleton("Chill Skeleton", 124, "Skeleton", ConsoleColor.Red);
         Reaper reaper = new Reaper("Part Time Death", 250, "Reaper", ConsoleColor.DarkRed);
 
         public bool alive = true;
@@ -36,6 +39,8 @@ namespace MSSA_Roguelike___Mini_Project
             ghosts.Add(ghost2);
             ghosts.Add(ghost1);
         }
+
+        #region Battles
 
         public void churchBattle()
         {
@@ -151,9 +156,10 @@ namespace MSSA_Roguelike___Mini_Project
 
         public int barnBattle()
         {
+            int choice = BarnDialog(70, 20);
             battleTheme.Play(battleTheme.barnBattle);
-            BarnDialog(70, 20);
-            Thread.Sleep(3500);
+            WriteLine("Loading Death...");
+            Thread.Sleep(5000);
             int returnInt = 0;
 
             bool exit = false;
@@ -163,9 +169,15 @@ namespace MSSA_Roguelike___Mini_Project
                 {
                     Clear();
                     DisplayInfo();
-                    Jimmy.Battle(reaper, 0, 46);
+                    Jimmy.Battle(reaper, 0, 44);
                     if (reaper.health <= 0)
                         break;
+
+                    if (choice == 0)
+                    {
+                        Jimmy.health -= 10;
+                        WriteLine("**Jimmy loses 10 HP from the poison dripped on the Handle**");
+                    }
 
                     ReadKey(true);
                     Clear();
@@ -259,10 +271,10 @@ namespace MSSA_Roguelike___Mini_Project
                 Clear();
             }
         }
-        public void BarnDialog(int cursorX, int cursorY)
+        public int BarnDialog(int cursorX, int cursorY)
         {
             Clear();
-
+            int choice = 0;
             List<string> list = new List<string>();
             list.Add("Turning towards Jimmy, Nothing is behind the hood...");
             list.Add("\"I am Death\", says the creature");
@@ -270,7 +282,14 @@ namespace MSSA_Roguelike___Mini_Project
             list.Add("            ");
             list.Add("\"You have met your end, Jimmy.\" Death raises his scythe, ready to smite");
             list.Add("\"Try me\", Jimmy says with false confidence...");
-            list.Add("Jimmy charges with his attack...");
+
+            List<string> deal = new List<string>();
+            deal.Add("\"I'll give you a fighting chance...\" Death responds");
+            deal.Add("Death conjures a mighty sword from the air....");
+            deal.Add("\"It's yours if you want it...\"");
+            deal.Add("\"You could almost see the bewitched smile behind the hood...\"");
+            //accept or not
+            deal.Add("Jimmy charges foward to conquor Death...");
 
             for (int i = 0; i < list.Count; i++)
             {
@@ -287,7 +306,40 @@ namespace MSSA_Roguelike___Mini_Project
                 }
                 Clear();
             }
+            for (int i = 0; i < deal.Count; i++)
+            {
+                SetCursorPosition(cursorX, cursorY);
+                if (i != 4)
+                {
+                    foreach (char c in deal[i])
+                    {
+                        Write(c);
+                        Thread.Sleep(10);
+                    } 
+                }
+                else
+                {
+                    choice = menu.DealWithDeath(80, 20);
+                    if (choice == 0) //Take it
+                    {
+                        Clear();
+                        SetCursorPosition(cursorX, cursorY);
+                        WriteLine("\"HAHAHA Never make a deal with death\" Death cakles at his foolishness!");
+                    }
+                    else
+                    {
+                        Clear();
+                        SetCursorPosition(cursorX, cursorY);
+                        WriteLine("\"Wise...\" Jimmy senses an odd approval from Death...");
+                    }
+                }
+                Thread.Sleep(2500);
+                Clear();
+            }
+            return choice;
         }
+
+        #endregion Battles
 
     }
 }

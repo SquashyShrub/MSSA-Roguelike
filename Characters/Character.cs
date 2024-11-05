@@ -11,7 +11,7 @@ namespace MSSA_Roguelike___Mini_Project.Characters
     abstract class Character //base class
     {
         public string name { get; protected set; }
-        public int health { get; protected set; }
+        public int health { get; set; }
         public int maxHealth { get; protected set; }
         public int stamina { get; protected set; }
         public int maxStamina { get; protected set; }

@@ -13,18 +13,25 @@ namespace MSSA_Roguelike___Mini_Project
         {
             #region Game Objects
 
+            //World
             string[,] screenGrid = TextParser.ParseFileToArray("C:\\MSSA\\DS_Algo\\MSSA Roguelike - Mini Project\\TextFiles\\NormalScreen.txt");
             World world = new World(screenGrid);
             Player Jimmy = new Player(0, 0, null, 0, 0, 0);
 
+
+            //Game
             Artwork gameArt = new Artwork();
             Menu menus = new Menu();
+            IntroOutro introOutro = new IntroOutro();
             MusicThemes music = new MusicThemes();
 
+
+            //Items
             Items graveKey = new Items("Graveyard Key", 1);
             Items sword = new Items("Sword", 1);
 
-            IntroOutro introOutro = new IntroOutro();
+
+            //Places
             TownSquare townSquare = new TownSquare();
             AbandonedChurch church = new AbandonedChurch();
             CornMaze maze = new CornMaze();
@@ -34,33 +41,41 @@ namespace MSSA_Roguelike___Mini_Project
 
             #endregion Game Objects
 
+            #region Initialize and Intro
+
             //Set Game Resolution
             DefaultResolution();
             
-
-            //Game Intro
+            //Ensure correct window size
             WriteLine("Press any key to start...");
             ReadAndClear();
 
+            //Load Assets Animation
             //world.Loading(1, "Loading Assets");
             //world.Loading(1, "Loading Art");
             //world.Loading(2, "Loading Music");
             //Thread.Sleep(1000);
 
-            music.Play(music.townSquareTheme);
+            ////Start Music
+            //music.Play(music.townSquareTheme);
 
+            ////Intro
             //Thread.Sleep(500);
-            introOutro.DisplayIntro();
-            world.Loading(2);
+            //introOutro.DisplayIntro();
+            //world.Loading(2);
 
+            #endregion Initialize and Intro
 
-            //Conditionals
+            #region Gameplay
+
+            //Gameplay Conditionals
             bool exit = false;
             bool alive = true;
-            bool barnUnlocked = true;
-            bool hasKey = true;
+            bool barnUnlocked = false;
+            bool hasKey = false;
             bool churchVisit = false;
 
+            //Game Loop
             do
             {
                 world.DrawGrid(0, 45);
@@ -75,6 +90,8 @@ namespace MSSA_Roguelike___Mini_Project
                         music.Play(music.graveTheme);
                         if (hasKey)
                         {
+                            Dialog("That place looks spooky...", 58, 45);
+                            Thread.Sleep(2500);
                             grave.Start();
                             barnUnlocked = true;
                         }
@@ -83,27 +100,33 @@ namespace MSSA_Roguelike___Mini_Project
                             Dialog("It's locked...Is there a key somewhere?", 58, 45);
                             ReadKey(true);
                         }
-                        break;
+                        break; //Graveyard
 
                     case 1:
                         //Church
+                        Dialog("I think that's a good place to start...", 58, 45);
+                        Thread.Sleep(2500);
                         music.Play(music.churchTheme);
                         church.Start();
                         churchVisit = true;
-                        break;
+                        break; //Church
 
                     case 2:
                         //Corn Maze
+                        Dialog("I hope I don't get lost...", 58, 45);
+                        Thread.Sleep(2500);
                         music.Play(music.mazeTheme);
                         maze.Start();
                         hasKey = true;
-                        break;
+                        break; //Maze
 
                     case 3:
                         //Barn - BOSS
                         music.Play(music.barnTheme);
                         if (barnUnlocked)
                         {
+                            Dialog("Something doesn't feel right", 58, 45);
+                            Thread.Sleep(2500);
                             barn.Start();
                             alive = false;
                             exit = true;
@@ -113,17 +136,20 @@ namespace MSSA_Roguelike___Mini_Project
                             Dialog("I feel like I should explore more...", 58, 45);
                             ReadKey(true);
                         }
-                        break;
+                        break; //Barn
                 }
                 music.Play(music.townSquareTheme);
 
             } while(exit != true);
 
+
+            //Outro
             music.Play(music.barnTheme);
             if (!alive)
                 introOutro.DisplayOutroDead();
-
             ReadAndClear();
+
+            #endregion Gameplay
 
             //Ease-Of-Use Functions
             void DefaultResolution()

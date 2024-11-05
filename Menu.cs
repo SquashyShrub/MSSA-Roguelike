@@ -36,7 +36,7 @@ namespace MSSA_Roguelike___Mini_Project
             optionList.Add("Exit Game");
 
             firstOption = 0;
-            lastOption = optionList.Count;
+            lastOption = optionList.Count - 1;
             isSelected = false;
 
             //Draw Art
@@ -46,13 +46,13 @@ namespace MSSA_Roguelike___Mini_Project
 
             while (isSelected == false)
             {
-                for (int i = 0; i < lastOption; i++)
+                for (int i = 0; i <= lastOption; i++)
                 {
                     SetCursorPosition(cursorX, cursorY + i);
                     WriteLine($"");
                 }
 
-                for (int i = 0; i < lastOption; i++)
+                for (int i = 0; i <= lastOption; i++)
                 {
                     SetCursorPosition(cursorX, cursorY + i);
                     WriteLine($"{(option == i ? selectedTextColor : "        ")}{optionList[i]}{resetColor}");
@@ -96,20 +96,20 @@ namespace MSSA_Roguelike___Mini_Project
             optionList.Add("Go to the barn");
 
             firstOption = 0;
-            lastOption = optionList.Count;
+            lastOption = optionList.Count - 1;
             isSelected = false;
 
             ConsoleKey key;
 
             while (isSelected == false)
             {
-                for (int i = 0; i < lastOption; i++)
+                for (int i = 0; i <= lastOption; i++)
                 {
                     SetCursorPosition(cursorX, cursorY + i);
                     WriteLine($"");
                 }
 
-                for (int i = 0; i < lastOption; i++)
+                for (int i = 0; i <= lastOption; i++)
                 {
                     SetCursorPosition(cursorX, cursorY + i);
                     WriteLine($"{(option == i ? selectedTextColor : "        ")}{optionList[i]}{resetColor}");
@@ -153,7 +153,7 @@ namespace MSSA_Roguelike___Mini_Project
             optionList.Add("Heal (heal 40 HP)");
 
             firstOption = 0;
-            lastOption = optionList.Count;
+            lastOption = optionList.Count - 1;
             isSelected = false;
 
             ConsoleKey key;
@@ -161,13 +161,13 @@ namespace MSSA_Roguelike___Mini_Project
             while (isSelected == false)
             {
                 
-                for (int i = 0; i < lastOption; i++)
+                for (int i = 0; i <= lastOption; i++)
                 {
                     SetCursorPosition(cursorX, cursorY + i);
                     WriteLine($"");
                 }
 
-                for (int i = 0; i < lastOption; i++)
+                for (int i = 0; i <= lastOption; i++)
                 {
                     SetCursorPosition(cursorX, cursorY + i);
                     WriteLine($"{(option == i ? selectedTextColor : "        ")}{optionList[i]}{resetColor}");
@@ -175,6 +175,59 @@ namespace MSSA_Roguelike___Mini_Project
 
                 ConsoleKeyInfo keyInfo = ReadKey();
                 switch (keyInfo.Key)
+                {
+                    case ConsoleKey.UpArrow:
+                        if (option == firstOption)
+                            option = lastOption;
+                        else
+                            option--;
+                        break;
+
+                    case ConsoleKey.DownArrow:
+                        if (option == lastOption)
+                            option = firstOption;
+                        else
+                            option++;
+                        break;
+
+                    case ConsoleKey.Enter:
+                        isSelected = true;
+                        break;
+                }
+            }
+            return option;
+        }
+
+        public int DealWithDeath(int cursorX = 0, int cursorY = 0)
+        {
+            List<string> optionList = new List<string>(); //Want to use the 'small' ASCII Font eventually
+            optionList.Add("\"I'll take it\"");
+            optionList.Add("\"No way!\"");
+
+            firstOption = 0;
+            lastOption = optionList.Count - 1;
+            isSelected = false;
+
+            ConsoleKey key;
+
+            while (isSelected == false)
+            {
+                for (int i = 0; i <= lastOption; i++)
+                {
+                    SetCursorPosition(cursorX, cursorY + i);
+                    WriteLine($"");
+                }
+
+                for (int i = 0; i <= lastOption; i++)
+                {
+                    SetCursorPosition(cursorX, cursorY + i);
+                    WriteLine($"{(option == i ? selectedTextColor : "        ")}{optionList[i]}{resetColor}");
+                }
+
+                ConsoleKeyInfo keyInfo = ReadKey();
+                key = keyInfo.Key;
+
+                switch (key)
                 {
                     case ConsoleKey.UpArrow:
                         if (option == firstOption)

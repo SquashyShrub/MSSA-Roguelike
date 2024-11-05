@@ -22,7 +22,7 @@ namespace MSSA_Roguelike___Mini_Project
                 switch (response)
                 {
                     case 0:
-                        //IntroDialog(70, 20);
+                        IntroDialog(70, 20);
                         //go to town square (Handled in program)
                         void IntroDialog(int cursorX, int cursorY)
                         {
@@ -123,11 +123,12 @@ WEBSITES USED
 
     * BeepBox                   John Nesky                      https://www.beepbox.co/");
                         ReadKey();
+                        Clear();
                         break; //Credits
 
                     case 3:
                         Loading();
-                        ReadKey(true);
+                        Thread.Sleep(3000);
                         Environment.Exit(0);
                         break; //Exit Game
                 }
@@ -180,7 +181,7 @@ WEBSITES USED
             Clear();
             art.DrawArt(art.worldArt["YouDied"]);
             Thread.Sleep(3000);
-            art.Erase(art.worldArt["YouDied"], 6);
+            art.Erase(art.worldArt["YouDied"], 8);
             OutroDialog(75, 20);
 
             void OutroDialog(int cursorX, int cursorY)
@@ -196,11 +197,12 @@ WEBSITES USED
                 list.Add("                  ");
                 
                 List<string> list2 = new List<string>();
-                list2.Add("Voice 2: 17:09, dead");
-                list2.Add("A blinding light fills Jimmy's head...");
+                list2.Add("Voice 2: 17:09, dead.");
+                list2.Add("A blinding light fills your head...");
                 list2.Add("Slowly corrupted by the dark...");
                 list2.Add("Death smiles sinisterly...");
-                list2.Add("\"It's not over Death...\" ");
+                list2.Add("\"It's not over Death...\"");
+                list2.Add("\"I'm not dying yet.\"");
 
                 for (int i = 0; i < list.Count; i++)
                 {
@@ -237,12 +239,19 @@ WEBSITES USED
             SetCursorPosition(70, 20);
             Thread.Sleep(2000);
             WriteLine("To be Continued...");
+            Thread.Sleep(2000);
+            SetCursorPosition(70, 22);
+            WriteLine("Thank you for playing!");
+            SetCursorPosition(70, 24);
+            WriteLine("Press any key to exit the application");
+            ReadKey(true);
+            Environment.Exit(0);
         }
 
         private void Loading()
         {
             SetCursorPosition(WindowWidth / 2, WindowHeight / 2);
-            WriteLine("Sorry to see you go");  
+            WriteLine("Sorry to see you go.");  
         }
     }
 }
