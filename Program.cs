@@ -62,31 +62,21 @@ namespace MSSA_Roguelike___Mini_Project
             Thread.Sleep(1000);
             Clear();
 
-            TryAgain:
-            try
-            {
-                //Start Music
-                music.Play(music.townSquareTheme);
+            //Start Music
+            music.Play(music.townSquareTheme);
 
-                //Intro
-                Thread.Sleep(500);
-                introOutro.DisplayIntro();
-                world.SceneLoad(2);
-            }
-            catch
-            {
-                Clear();
-                music.Stop(music.townSquareTheme);
-                ForegroundColor = ConsoleColor.Red;
-                SetCursorPosition(20, 10);
-                WriteLine("Please ensure your window is fullscreen otherwise the program cannot run correctly");
-                SetCursorPosition(36, 12);
-                WriteLine("Once screen is full size, press any key to continue");
-                ForegroundColor = ConsoleColor.White;
-                ReadKey();
-
-                goto TryAgain;
-            }
+            //Intro
+            Thread.Sleep(500);
+            introOutro.DisplayIntro();                
+            Clear();
+            music.Stop(music.townSquareTheme);
+            ForegroundColor = ConsoleColor.Red;
+            SetCursorPosition(20, 10);
+            WriteLine("Please ensure your window is fullscreen otherwise the program cannot run correctly");
+            SetCursorPosition(36, 12);
+            WriteLine("Once screen is full size, press any key to continue");
+            ForegroundColor = ConsoleColor.White;
+            ReadKey();
 
             #endregion Initialize and Intro
 
