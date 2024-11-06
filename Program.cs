@@ -109,9 +109,9 @@ namespace MSSA_Roguelike___Mini_Project
                 {
                     case 0:
                         //Graveyard
-                        music.Play(music.graveTheme);
                         if (hasKey)
                         {
+                            music.Play(music.graveTheme);
                             Dialog("That place looks spooky...", 58, 45);
                             Thread.Sleep(2500);
                             grave.Start();
@@ -135,18 +135,18 @@ namespace MSSA_Roguelike___Mini_Project
 
                     case 2:
                         //Corn Maze
+                        music.Play(music.mazeTheme);
                         Dialog("I hope I don't get lost...", 58, 45);
                         Thread.Sleep(2500);
-                        music.Play(music.mazeTheme);
                         maze.Start();
                         hasKey = true;
                         break; //Maze
 
                     case 3:
                         //Barn - BOSS
-                        music.Play(music.barnTheme);
                         if (barnUnlocked)
                         {
+                            music.Play(music.barnTheme);
                             Dialog("Something doesn't feel right", 58, 45);
                             Thread.Sleep(2500);
                             barn.Start();

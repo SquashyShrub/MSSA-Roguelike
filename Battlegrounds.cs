@@ -44,7 +44,7 @@ namespace MSSA_Roguelike___Mini_Project
         public void churchBattle()
         {
             battleTheme.Play(battleTheme.churchBattle);
-            ChurchDialog(80, 20);
+            ChurchDialog(86, 20);
 
             int ghostCount = 3;
             while ( ghostCount > 0)
@@ -82,10 +82,16 @@ namespace MSSA_Roguelike___Mini_Project
                 if (currentGhost.health <= 0)
                 {
                     Clear();
+                    SetCursorPosition(WindowWidth / 2 - 6, 20);
                     WriteLine($"Jimmy has slain {currentGhost.name}!");
-                    if (ghostCount > 0)
+                    if (ghostCount > 1)
                     {
+                        SetCursorPosition(WindowWidth / 2 - 6, 22);
                         WriteLine("Another approaches!");
+                        ghostCount -= 1;
+                    }
+                    else
+                    {
                         ghostCount -= 1;
                     }
                     ReadKey(true);
@@ -93,6 +99,7 @@ namespace MSSA_Roguelike___Mini_Project
                 else
                 {
                     Clear();
+                    SetCursorPosition(75, 20);
                     WriteLine("Jimmy died even with all that health generously given to him by his creator");
                     outro.DisplayOutroDead();
                     Environment.Exit(0);
@@ -140,12 +147,14 @@ namespace MSSA_Roguelike___Mini_Project
             {
                 battleTheme.Play(battleTheme.graveTheme);
                 Clear();
+                SetCursorPosition(86, 20);
                 WriteLine($"Jimmy has slain the skeleton of chill!");
                 ReadKey(true);
             }
             else
             {
                 Clear();
+                SetCursorPosition(86, 20);
                 WriteLine("Jimmy died. Those combos were vicious.");
                 outro.DisplayOutroDead();
                 ReadKey(true);
@@ -250,10 +259,13 @@ namespace MSSA_Roguelike___Mini_Project
             Clear();
 
             List<string> list = new List<string>();
-            list.Add("\"Hey...\" ");
             list.Add("Before the words leave Jimmy's lips, with incredible speed 'Chill Skeleton' swings his sword without hesitation!");
             list.Add("Jimmy finds an opening and attacks...");
 
+            SetCursorPosition(100, 20);
+            WriteLine("\"Hey...\"");
+            Thread.Sleep(1800);
+            Clear();
             for (int i = 0; i < list.Count; i++)
             {
                 SetCursorPosition(cursorX, cursorY);

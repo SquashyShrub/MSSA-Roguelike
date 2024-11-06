@@ -68,6 +68,9 @@ namespace MSSA_Roguelike___Mini_Project.Characters
             WriteLine($"{name}'s Health: ");
             ResetColor();
 
+            if (health >= maxHealth)
+                health = maxHealth;
+
             Write("[");
             //Draw HP filled in
             BackgroundColor = ConsoleColor.Green;
@@ -93,6 +96,9 @@ namespace MSSA_Roguelike___Mini_Project.Characters
             WriteLine($"{name}'s Stamina: ");
             ResetColor();
 
+            if (stamina >= maxStamina)
+                stamina = maxStamina;
+
             Write("[");
             BackgroundColor = ConsoleColor.DarkYellow;
             for (int i = 0; i < stamina; i++)
@@ -105,7 +111,8 @@ namespace MSSA_Roguelike___Mini_Project.Characters
                 Write(" ");
             }
             ResetColor();
-            WriteLine($"{stamina}/{maxStamina}");
+            Write("]");
+            WriteLine($" {stamina}/{maxStamina}");
         }
     }
 }
