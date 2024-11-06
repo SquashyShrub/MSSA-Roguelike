@@ -15,7 +15,7 @@ namespace MSSA_Roguelike___Mini_Project
         static string mazePath = Path.Combine(currentDir, "Music", "MSSA Roguelike Maze Theme.wav");
         static string gravePath = Path.Combine(currentDir, "Music", "MSSA Roguelike Graveyard Theme.wav");
         static string barnPath = Path.Combine(currentDir, "Music", "MSSA Roguelike Barn Theme.wav");
-        static string battle1 = Path.Combine(currentDir, "Music", "\\MSSA Roguelike Battle Theme 1.wav");
+        static string battle1 = Path.Combine(currentDir, "Music", "MSSA Roguelike Battle Theme 1.wav");
         static string battle2 = Path.Combine(currentDir, "Music", "MSSA Roguelike Battle Theme 2 - Bloody Tears.wav");
         static string battle3 = Path.Combine(currentDir, "Music", "MSSA Roguelike Battle Theme 3.wav");
 
