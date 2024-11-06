@@ -17,51 +17,79 @@ namespace MSSA_Roguelike___Mini_Project
 
         public Artwork()
         {
+            #region Relative Directory Paths
+
+            string baseDirectory = @"C:\MSSA\DS_Algo\MSSA Roguelike - Mini Project";
+
+            //Beginning
+            string TitlePath = @"C:\MSSA\DS_Algo\MSSA Roguelike - Mini Project\TextFiles\Artwork\Title.txt";
+            string TownPath = @"C:\MSSA\DS_Algo\MSSA Roguelike - Mini Project\TextFiles\Artwork\TownSquare.txt";
+
+            //Entrances
+            string churchPath = @"C:\MSSA\DS_Algo\MSSA Roguelike - Mini Project\TextFiles\Artwork\ChurchEntrance.txt";
+            string mazePath = @"C:\MSSA\DS_Algo\MSSA Roguelike - Mini Project\TextFiles\Artwork\CornMazeEntrance.txt";
+            string gravePath = @"C:\MSSA\DS_Algo\MSSA Roguelike - Mini Project\TextFiles\Artwork\GraveYardEntrance.txt";
+            string barnPath = @"C:\MSSA\DS_Algo\MSSA Roguelike - Mini Project\TextFiles\Artwork\BarnEntrance.txt";
+
+            //Enemies
+            string ghostPath = @"C:\MSSA\DS_Algo\MSSA Roguelike - Mini Project\TextFiles\Artwork\GhostEnemy.txt";
+            string skeletonPath = @"C:\MSSA\DS_Algo\MSSA Roguelike - Mini Project\TextFiles\Artwork\SkeletonEnemy.txt";
+            string reaperPath = @"C:\MSSA\DS_Algo\MSSA Roguelike - Mini Project\TextFiles\Artwork\ReaperEnemy.txt";
+
+            //Items
+            string keyPath = @"C:\MSSA\DS_Algo\MSSA Roguelike - Mini Project\TextFiles\Artwork\Key.txt";
+
+            //Menu Texts
+            string gameControlsPath = @"C:\MSSA\DS_Algo\MSSA Roguelike - Mini Project\TextFiles\MenuTexts\GameControls.txt";
+            string youDiedPath = @"C:\MSSA\DS_Algo\MSSA Roguelike - Mini Project\TextFiles\MenuTexts\YouDied.txt";
+
+            #endregion Relative Directory Paths
+
             #region Add Artwork to Dictionary 
 
             //Beginning
-            string[,] TitleArt = TextParser.ParseFileToArray("C:\\MSSA\\DS_Algo\\MSSA Roguelike - Mini Project\\TextFiles\\Artwork\\Title.txt");
+            string[,] TitleArt = TextParser.ParseFileToArray(System.IO.Path.GetRelativePath(baseDirectory, TitlePath));
             worldArt.Add("TitleArt", TitleArt);
 
-            string[,] TownSquare = TextParser.ParseFileToArray("C:\\MSSA\\DS_Algo\\MSSA Roguelike - Mini Project\\TextFiles\\Artwork\\TownSquare.txt");
+            string[,] TownSquare = TextParser.ParseFileToArray(System.IO.Path.GetRelativePath(baseDirectory, TownPath));
             worldArt.Add("TownSquare", TownSquare);
 
 
             //Entrances
-            string[,] churchEntrance = TextParser.ParseFileToArray("C:\\MSSA\\DS_Algo\\MSSA Roguelike - Mini Project\\TextFiles\\Artwork\\ChurchEntrance.txt");
+            string[,] churchEntrance = TextParser.ParseFileToArray(System.IO.Path.GetRelativePath(baseDirectory, churchPath));
             worldArt.Add("ChurchEntrance", churchEntrance);
 
-            string[,] mazeEntrance = TextParser.ParseFileToArray("C:\\MSSA\\DS_Algo\\MSSA Roguelike - Mini Project\\TextFiles\\Artwork\\CornMazeEntrance.txt");
+            string[,] mazeEntrance = TextParser.ParseFileToArray(System.IO.Path.GetRelativePath(baseDirectory, mazePath));
             worldArt.Add("MazeEntrance", mazeEntrance);
 
-            string[,] graveyardEntrance = TextParser.ParseFileToArray("C:\\MSSA\\DS_Algo\\MSSA Roguelike - Mini Project\\TextFiles\\Artwork\\GraveYardEntrance.txt");
+            string[,] graveyardEntrance = TextParser.ParseFileToArray(System.IO.Path.GetRelativePath(baseDirectory, gravePath));
             worldArt.Add("graveyardEntrance", graveyardEntrance);
 
-            string[,] barnEntrance = TextParser.ParseFileToArray("C:\\MSSA\\DS_Algo\\MSSA Roguelike - Mini Project\\TextFiles\\Artwork\\BarnEntrance.txt");
+            string[,] barnEntrance = TextParser.ParseFileToArray(System.IO.Path.GetRelativePath(baseDirectory, barnPath));
             worldArt.Add("barnEntrance", barnEntrance);
 
 
             //Enemies
-            string[,] Ghosts = TextParser.ParseFileToArray("C:\\MSSA\\DS_Algo\\MSSA Roguelike - Mini Project\\TextFiles\\Artwork\\GhostEnemy.txt");
+            string[,] Ghosts = TextParser.ParseFileToArray(System.IO.Path.GetRelativePath(baseDirectory, ghostPath));
             worldArt.Add("Ghosts", Ghosts);
 
-            string[,] Skeleton = TextParser.ParseFileToArray("C:\\MSSA\\DS_Algo\\MSSA Roguelike - Mini Project\\TextFiles\\Artwork\\SkeletonEnemy.txt");
+            string[,] Skeleton = TextParser.ParseFileToArray(System.IO.Path.GetRelativePath(baseDirectory, skeletonPath));
             worldArt.Add("Skeleton", Skeleton);
 
-            string[,] Reaper = TextParser.ParseFileToArray("C:\\MSSA\\DS_Algo\\MSSA Roguelike - Mini Project\\TextFiles\\Artwork\\ReaperEnemy.txt");
+            string[,] Reaper = TextParser.ParseFileToArray(System.IO.Path.GetRelativePath(baseDirectory, reaperPath));
             worldArt.Add("Reaper", Reaper);
 
 
             //Items
-            string[,] GraveyardKey = TextParser.ParseFileToArray("C:\\MSSA\\DS_Algo\\MSSA Roguelike - Mini Project\\TextFiles\\Artwork\\Key.txt");
+            string[,] GraveyardKey = TextParser.ParseFileToArray(System.IO.Path.GetRelativePath(baseDirectory, gravePath));
             worldArt.Add("GraveyardKey", GraveyardKey);
 
 
             //MenuText
-            string[,] GameControls = TextParser.ParseFileToArray("C:\\MSSA\\DS_Algo\\MSSA Roguelike - Mini Project\\TextFiles\\MenuTexts\\GameControls.txt");
+            string[,] GameControls = TextParser.ParseFileToArray(System.IO.Path.GetRelativePath(baseDirectory, gameControlsPath));
             worldArt.Add("GameControls", GameControls);
 
-            string[,] YouDied = TextParser.ParseFileToArray("C:\\MSSA\\DS_Algo\\MSSA Roguelike - Mini Project\\TextFiles\\MenuTexts\\YouDied.txt");
+            string[,] YouDied = TextParser.ParseFileToArray(System.IO.Path.GetRelativePath(baseDirectory, youDiedPath));
             worldArt.Add("YouDied", YouDied);
 
             #endregion Add Artwork to Dictionary
