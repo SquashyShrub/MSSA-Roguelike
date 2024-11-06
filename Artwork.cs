@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Resources;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Console;
@@ -19,6 +20,7 @@ namespace MSSA_Roguelike___Mini_Project
         {
             string baseDir = @"C:\MSSA\DS_Algo\MSSA Roguelike - Mini Project\";
 
+            /*  
             string titlePath = @"C:\MSSA\DS_Algo\MSSA Roguelike - Mini Project\TextFiles\Artwork\Title.txt";
             string townPath = @"C:\MSSA\DS_Algo\MSSA Roguelike - Mini Project\TextFiles\Artwork\TownSquare.txt";
             string churchPath = @"C:\MSSA\DS_Algo\MSSA Roguelike - Mini Project\TextFiles\Artwork\ChurchEntrance.txt";
@@ -29,50 +31,65 @@ namespace MSSA_Roguelike___Mini_Project
             string skeletonPath = @"C:\MSSA\DS_Algo\MSSA Roguelike - Mini Project\TextFiles\Artwork\SkeletonEnemy.txt";
             string reaperPath = @"C:\MSSA\DS_Algo\MSSA Roguelike - Mini Project\TextFiles\Artwork\ReaperEnemy.txt";
             string keyPath = @"C:\MSSA\DS_Algo\MSSA Roguelike - Mini Project\TextFiles\Artwork\Key.txt";
-            string diedPath = @"C:\MSSA\DS_Algo\MSSA Roguelike - Mini Project\TextFiles\MenuTexts\YouDied.txt";
+            string diedPath = @"C:\MSSA\DS_Algo\MSSA Roguelike - Mini Project\TextFiles\MenuTexts\YouDied.txt"; 
+            
+            System.IO.Path.GetRelativePath(baseDir, townPath)*/
+
+            string currentDir = AppDomain.CurrentDomain.BaseDirectory;
+            string titlePath = Path.Combine(currentDir, "TextFiles/Artwork", "Title.txt");
+            string townPath = Path.Combine(currentDir, "TextFiles/Artwork", "TownSquare.txt");
+            string churchPath = Path.Combine(currentDir, "TextFiles/Artwork", "ChurchEntrance.txt");
+            string mazePath = Path.Combine(currentDir, "TextFiles/Artwork", "CornMazeEntrance.txt");
+            string gravePath = Path.Combine(currentDir, "TextFiles/Artwork", "GraveYardEntrance.txt");
+            string barnPath = Path.Combine(currentDir, "TextFiles/Artwork", "BarnEntrance.txt");
+            string ghostPath = Path.Combine(currentDir, "TextFiles/Artwork", "GhostEnemy.txt");
+            string skeletonPath = Path.Combine(currentDir, "TextFiles/Artwork", "SkeletonEnemy.txt");
+            string reaperPath = Path.Combine(currentDir, "TextFiles/Artwork", "ReaperEnemy.txt");
+            string keyPath = Path.Combine(currentDir, "TextFiles/Artwork", "Key.txt");
+            string diedPath = Path.Combine(currentDir, "TextFiles/MenuTexts", "YouDied.txt");
 
             #region Add Artwork to Dictionary 
 
             //Beginning
-            string[,] TitleArt = TextParser.ParseFileToArray(System.IO.Path.GetRelativePath(baseDir, titlePath));
+            string[,] TitleArt = TextParser.ParseFileToArray(titlePath);
             worldArt.Add("TitleArt", TitleArt);
 
-            string[,] TownSquare = TextParser.ParseFileToArray(System.IO.Path.GetRelativePath(baseDir, townPath));
+            string[,] TownSquare = TextParser.ParseFileToArray(townPath);
             worldArt.Add("TownSquare", TownSquare);
 
 
             //Entrances
-            string[,] churchEntrance = TextParser.ParseFileToArray(System.IO.Path.GetRelativePath(baseDir, churchPath));
+            string[,] churchEntrance = TextParser.ParseFileToArray(churchPath);
             worldArt.Add("ChurchEntrance", churchEntrance);
 
-            string[,] mazeEntrance = TextParser.ParseFileToArray(System.IO.Path.GetRelativePath(baseDir, mazePath));
+            string[,] mazeEntrance = TextParser.ParseFileToArray(mazePath);
             worldArt.Add("MazeEntrance", mazeEntrance);
 
-            string[,] graveyardEntrance = TextParser.ParseFileToArray(System.IO.Path.GetRelativePath(baseDir, gravePath));
+            string[,] graveyardEntrance = TextParser.ParseFileToArray(gravePath);
             worldArt.Add("graveyardEntrance", graveyardEntrance);
 
-            string[,] barnEntrance = TextParser.ParseFileToArray(System.IO.Path.GetRelativePath(baseDir, barnPath));
+            string[,] barnEntrance = TextParser.ParseFileToArray(barnPath);
             worldArt.Add("barnEntrance", barnEntrance);
 
 
             //Enemies
-            string[,] Ghosts = TextParser.ParseFileToArray(System.IO.Path.GetRelativePath(baseDir, ghostPath));
+            string[,] Ghosts = TextParser.ParseFileToArray(ghostPath);
             worldArt.Add("Ghosts", Ghosts);
 
-            string[,] Skeleton = TextParser.ParseFileToArray(System.IO.Path.GetRelativePath(baseDir, skeletonPath));
+            string[,] Skeleton = TextParser.ParseFileToArray(skeletonPath);
             worldArt.Add("Skeleton", Skeleton);
 
-            string[,] Reaper = TextParser.ParseFileToArray(System.IO.Path.GetRelativePath(baseDir, reaperPath));
+            string[,] Reaper = TextParser.ParseFileToArray(reaperPath);
             worldArt.Add("Reaper", Reaper);
 
 
             //Items
-            string[,] GraveyardKey = TextParser.ParseFileToArray(System.IO.Path.GetRelativePath(baseDir, keyPath));
+            string[,] GraveyardKey = TextParser.ParseFileToArray(keyPath);
             worldArt.Add("GraveyardKey", GraveyardKey);
 
 
             //MenuText
-            string[,] YouDied = TextParser.ParseFileToArray(System.IO.Path.GetRelativePath(baseDir, diedPath));
+            string[,] YouDied = TextParser.ParseFileToArray(diedPath);
             worldArt.Add("YouDied", YouDied);
 
             #endregion Add Artwork to Dictionary

@@ -19,7 +19,9 @@ namespace MSSA_Roguelike___Mini_Project.Places
         {
             Clear();
 
-            string[,] churchGrid = TextParser.ParseFileToArray("C:\\MSSA\\DS_Algo\\MSSA Roguelike - Mini Project\\TextFiles\\Maps\\ChurchInterior.txt");
+            string currentDir = AppDomain.CurrentDomain.BaseDirectory;
+            string church = Path.Combine(currentDir, "TextFiles/Maps", "ChurchInterior.txt");
+            string[,] churchGrid = TextParser.ParseFileToArray(church);
 
             GameHandler_Church = new World(churchGrid);
             Player_Church = new Player(19, 13, "Jimmy", Health, ConsoleColor.Cyan, 6);

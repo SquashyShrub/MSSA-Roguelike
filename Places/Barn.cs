@@ -20,7 +20,9 @@ namespace MSSA_Roguelike___Mini_Project.Places
         {
             Clear();
 
-            string[,] barnGrid = TextParser.ParseFileToArray("C:\\MSSA\\DS_Algo\\MSSA Roguelike - Mini Project\\TextFiles\\Maps\\BarnInterior.txt");
+            string currentDir = AppDomain.CurrentDomain.BaseDirectory;
+            string barn = Path.Combine(currentDir, "TextFiles/Maps", "BarnInterior.txt");
+            string[,] barnGrid = TextParser.ParseFileToArray(barn);
 
             GameHandler_Barn = new World(barnGrid);
             Player_Barn = new Player(12, 1, "Jimmy", 200, ConsoleColor.Cyan, 6);

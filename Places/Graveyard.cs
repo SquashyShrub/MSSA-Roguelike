@@ -18,8 +18,9 @@ namespace MSSA_Roguelike___Mini_Project.Places
         public void Start()
         {
             Clear();
-
-            string[,] graveyardGrid = TextParser.ParseFileToArray("C:\\MSSA\\DS_Algo\\MSSA Roguelike - Mini Project\\TextFiles\\Maps\\GraveYardMap.txt");
+            string currentDir = AppDomain.CurrentDomain.BaseDirectory;
+            string grave = Path.Combine(currentDir, "TextFiles/Maps", "GraveYardMap.txt");
+            string[,] graveyardGrid = TextParser.ParseFileToArray(grave);
 
             GameHandler_Graveyard = new World(graveyardGrid);
             Player_Graveyard = new Player(3, 9, "Jimmy", 200, ConsoleColor.Cyan, 6);

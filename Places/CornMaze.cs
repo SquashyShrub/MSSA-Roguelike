@@ -20,7 +20,9 @@ namespace MSSA_Roguelike___Mini_Project.Places
         {
             Clear();
 
-            string[,] mazeGrid = TextParser.ParseFileToArray("C:\\MSSA\\DS_Algo\\MSSA Roguelike - Mini Project\\TextFiles\\Maps\\CornMazeInterior.txt");
+            string currentDir = AppDomain.CurrentDomain.BaseDirectory;
+            string maze = Path.Combine(currentDir, "TextFiles/Maps", "CornMazeInterior.txt");
+            string[,] mazeGrid = TextParser.ParseFileToArray(maze);
 
             Player_Maze = new Player(2, 9, "Jimmy", 200, ConsoleColor.Cyan, 6);
             Chaser = new Player(2, 9, "Chaser", 10000, ConsoleColor.Red, 10);

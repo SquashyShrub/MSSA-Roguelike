@@ -14,7 +14,9 @@ namespace MSSA_Roguelike___Mini_Project
             #region Game Objects
 
             //World
-            string[,] screenGrid = TextParser.ParseFileToArray("C:\\MSSA\\DS_Algo\\MSSA Roguelike - Mini Project\\TextFiles\\NormalScreen.txt");
+            string currentDir = AppDomain.CurrentDomain.BaseDirectory;
+            string screen = Path.Combine(currentDir, "TextFiles", "NormalScreen.txt");
+            string[,] screenGrid = TextParser.ParseFileToArray(screen);
             World world = new World(screenGrid);
             Player Jimmy = new Player(0, 0, null, 0, 0, 0);
 
@@ -53,12 +55,12 @@ namespace MSSA_Roguelike___Mini_Project
             ResetColor();
             ReadAndClear();
 
-            //Load Assets Animation
-            world.Loading(1, "Loading Assets");
-            world.Loading(1, "Loading Art");
-            world.Loading(2, "Loading Music");
-            Thread.Sleep(1000);
-            Clear();
+            ////Load Assets Animation
+            //world.Loading(1, "Loading Assets");
+            //world.Loading(1, "Loading Art");
+            //world.Loading(2, "Loading Music");
+            //Thread.Sleep(1000);
+            //Clear();
 
             TryAgain:
             try
