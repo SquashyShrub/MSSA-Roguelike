@@ -71,15 +71,15 @@ namespace MSSA_Roguelike___Mini_Project
             world.SceneLoad(2);
 
 
-            Clear();
-            music.Stop(music.townSquareTheme);
-            ForegroundColor = ConsoleColor.Red;
-            SetCursorPosition(20, 10);
-            WriteLine("Please ensure your window is fullscreen otherwise the program cannot run correctly");
-            SetCursorPosition(36, 12);
-            WriteLine("Once screen is full size, press any key to continue");
-            ForegroundColor = ConsoleColor.White;
-            ReadKey();
+            //Clear(); TRY LOGIC IF USED AGAIN
+            //music.Stop(music.townSquareTheme);
+            //ForegroundColor = ConsoleColor.Red;
+            //SetCursorPosition(20, 10);
+            //WriteLine("Please ensure your window is fullscreen otherwise the program cannot run correctly");
+            //SetCursorPosition(36, 12);
+            //WriteLine("Once screen is full size, press any key to continue");
+            //ForegroundColor = ConsoleColor.White;
+            //ReadKey();
 
 
             #endregion Initialize and Intro

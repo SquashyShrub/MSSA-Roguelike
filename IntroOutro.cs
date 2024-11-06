@@ -10,6 +10,7 @@ namespace MSSA_Roguelike___Mini_Project
     internal class IntroOutro
     {
         private Artwork art = new Artwork();
+        MusicThemes music = new MusicThemes();
         private Menu menus = new Menu();
         public void DisplayIntro()
         {
@@ -222,6 +223,7 @@ GAME DESIGN
         public void DisplayOutroDead()
         {
             Clear();
+            music.Play(music.barnTheme);
             art.DrawArt(art.worldArt["YouDied"]);
             Thread.Sleep(3000);
             art.Erase(art.worldArt["YouDied"], 8);

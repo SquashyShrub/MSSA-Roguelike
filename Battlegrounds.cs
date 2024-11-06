@@ -101,6 +101,7 @@ namespace MSSA_Roguelike___Mini_Project
                     Clear();
                     SetCursorPosition(75, 20);
                     WriteLine("Jimmy died even with all that health generously given to him by his creator");
+                    Thread.Sleep(2000);
                     outro.DisplayOutroDead();
                     Environment.Exit(0);
                     break;
