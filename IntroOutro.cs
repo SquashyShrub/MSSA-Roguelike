@@ -283,9 +283,9 @@ GAME DESIGN
             Thread.Sleep(2000);
             WriteLine("To be Continued...");
             Thread.Sleep(2000);
-            SetCursorPosition(70, 22);
+            SetCursorPosition(86, 22);
             WriteLine("Thank you for playing!");
-            SetCursorPosition(70, 24);
+            SetCursorPosition(86, 24);
             WriteLine("Press any key to exit the application");
             ReadKey(true);
             Environment.Exit(0);

@@ -298,7 +298,7 @@ namespace MSSA_Roguelike___Mini_Project
             deal.Add("\"I'll give you a fighting chance...\" Death responds");
             deal.Add("Death conjures a mighty sword from the air....");
             deal.Add("\"It's yours if you want it...\"");
-            deal.Add("\"You could almost see the bewitched smile behind the hood...\"");
+            deal.Add("You could almost see the bewitched smile behind the hood...");
             //accept or not
             deal.Add("Jimmy charges foward to conquor Death...");
 
@@ -335,7 +335,7 @@ namespace MSSA_Roguelike___Mini_Project
                     {
                         Clear();
                         SetCursorPosition(cursorX, cursorY);
-                        WriteLine("\"HAHAHA Never make a deal with death\" Death cakles at his foolishness!");
+                        WriteLine("Death cakles! \"HAHAHA! Never make a deal with death!\"");
                     }
                     else
                     {
