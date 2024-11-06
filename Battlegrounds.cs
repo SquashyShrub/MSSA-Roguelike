@@ -164,7 +164,7 @@ namespace MSSA_Roguelike___Mini_Project
 
         public int barnBattle()
         {
-            int choice = BarnDialog(70, 20);
+            int choice = BarnDialog(82, 20);
             battleTheme.Play(battleTheme.barnBattle);
             WriteLine("Loading Death...");
             Thread.Sleep(5000);
