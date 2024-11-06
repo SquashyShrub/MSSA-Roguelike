@@ -18,7 +18,7 @@ namespace MSSA_Roguelike___Mini_Project
 
         public Artwork()
         {
-            string baseDir = @"C:\MSSA\DS_Algo\MSSA Roguelike - Mini Project\";
+            //string baseDir = @"C:\MSSA\DS_Algo\MSSA Roguelike - Mini Project\";
 
             /*  
             string titlePath = @"C:\MSSA\DS_Algo\MSSA Roguelike - Mini Project\TextFiles\Artwork\Title.txt";
