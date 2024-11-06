@@ -55,12 +55,12 @@ namespace MSSA_Roguelike___Mini_Project
             ResetColor();
             ReadAndClear();
 
-            ////Load Assets Animation
-            //world.Loading(1, "Loading Assets");
-            //world.Loading(1, "Loading Art");
-            //world.Loading(2, "Loading Music");
-            //Thread.Sleep(1000);
-            //Clear();
+            //Load Assets Animation
+            world.Loading(1, "Loading Assets");
+            world.Loading(1, "Loading Art");
+            world.Loading(2, "Loading Music");
+            Thread.Sleep(1000);
+            Clear();
 
             TryAgain:
             try
