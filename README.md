@@ -1,13 +1,19 @@
-Project Name
+MSSA Roguelike
 
-Description - A summary of what your project does.
+Description
+MSSA Rogulike is a small roguelike game with text-base RPG elements added. You take charge of a character who is lost, travel to various locations and fight to survive. This is a project for the Microsoft Services and Systems Academy Cloud Application Development.
 
-Installation - Any steps required for setting it up.
-
-Usage - Instructions on how to use it.
+Installation
+1. Go to the latest release and install
+2. Unzip the files to a dedicated folder
+3. Run the executable
+4. Ready to go!
+   NOTE: As of the latest release, a screen resolution of 1980x1080 is required to run the game
 
 Features - Key functionalities of the project.
-
-Contributing - How others can contribute, if applicable.
-
-License - Any licenses you want to include.
+* MSSA Rogulike uses the combination of ASCII art and text files to make everything come to life
+* Usage of .wav files for music
+* Extensive use of OOP to maintain organization and functionality
+* Use of Dictionaries and Lists to handle the art and music
+* Use of a resource manager to ensure it can be published and ran by other machines
+* Development journal for time managment and ensure timely delivery of all features for the project 
