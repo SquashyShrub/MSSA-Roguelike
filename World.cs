@@ -128,6 +128,7 @@ namespace MSSA_Roguelike___Mini_Project
                 }
             }
         }
+
         public void SceneLoad(int loadTime, string input = "Loading...")
         {
             int load = loadTime * 1000;

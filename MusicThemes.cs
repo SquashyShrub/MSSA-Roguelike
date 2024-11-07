@@ -9,7 +9,7 @@ namespace MSSA_Roguelike___Mini_Project
 {
     internal class MusicThemes
     {
-        static string currentDir = AppDomain.CurrentDomain.BaseDirectory;
+        static string currentDir = AppDomain.CurrentDomain.BaseDirectory; 
         static string townPath = Path.Combine(currentDir, "Music", "MSSA Roguelike Townsquare Theme.wav");
         static string churchPath = Path.Combine(currentDir, "Music", "MSSA Roguelike Church Theme.wav");
         static string mazePath = Path.Combine(currentDir, "Music", "MSSA Roguelike Maze Theme.wav");
