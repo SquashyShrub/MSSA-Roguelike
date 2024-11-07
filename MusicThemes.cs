@@ -29,7 +29,6 @@ namespace MSSA_Roguelike___Mini_Project
         public SoundPlayer graveBattle = new SoundPlayer(battle2);
         public SoundPlayer barnBattle = new SoundPlayer(battle3);
 
-        
 
         public void Play(SoundPlayer sound)
         {

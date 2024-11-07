@@ -145,20 +145,5 @@ namespace MSSA_Roguelike___Mini_Project
             }
             Clear();
         }
-
-        #region Credits
-        /*
-         * Church Exterior Art: Joan Stark https://www.asciiart.eu/buildings-and-places/church
-         * Barn: No Artist Listed https://www.asciiart.eu/buildings-and-places/houses
-         * CornMazeStart: Spicer, Public Library Halls, https://www.asciiart.eu/buildings-and-places/other
-         * Skeleton Art Idle: Nabis https://www.asciiart.eu/mythology/skeletons
-         * Skeleton Art Attack: No Artist Listed https://www.asciiart.eu/mythology/skeletons
-         * Grim Reaper Art: jgs https://www.asciiart.eu/mythology/grim-reapers
-         * Ghost Art: jgs https://www.asciiart.eu/mythology/ghosts
-         * Key Art: Myself
-         * Text Art: patorjk.com https://patorjk.com/software/taag/#p=display&h=2&v=0&f=BlurVision%20ASCII&t=Type%20Something%20
-         * 
-         */
-        #endregion Credits
     }
 }

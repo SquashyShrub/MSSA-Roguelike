@@ -12,6 +12,7 @@ namespace MSSA_Roguelike___Mini_Project
         private Artwork art = new Artwork();
         MusicThemes music = new MusicThemes();
         private Menu menus = new Menu();
+       
         public void DisplayIntro()
         {
             int response = 1;
@@ -180,11 +181,8 @@ GAME DESIGN
 
             Clear();
         }
-
-        public void DisplayOutroLived() //After fighting Death
+        public void DisplayOutroLived()
         {
-            //Woken up from a dream
-            //Surrounded by doctors
             Clear();
             OutroDialog(86, 20);
             WriteLine("To be Continued...");
