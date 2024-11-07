@@ -2,7 +2,7 @@ MSSA Roguelike
 
 **Description**
 
-MSSA Rogulike is a small roguelike game with text-base RPG elements added. You take charge of a character who is lost, travel to various locations and fight to survive. This is a project for the Microsoft Services and Systems Academy Cloud Application Development.
+MSSA Rogulike is a small roguelike game with text-base RPG elements added. You take charge of a character who is lost, travel to various locations and fight to survive.
 
 **Installation**
 
@@ -20,4 +20,3 @@ MSSA Rogulike is a small roguelike game with text-base RPG elements added. You t
 * Turn based combat
 * Use of Dictionaries and Lists to handle the art and music
 * Use of a resource manager to ensure it can be published and ran by other machines
-* Development journal for time managment and ensure timely delivery of all features for the project 
